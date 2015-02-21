@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -Os -std=c99 -c -DSTM32F051C4 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -DSUPPORT_CPLUSPLUS -IH:\WORKSPACE\ARM\POV_Display -IH:\WORKSPACE\ARM\POV_Display\POV_BASE\inc -IH:\WORKSPACE\ARM\POV_Display\POV_BASE\cmsis_core -IH:\WORKSPACE\ARM\POV_Display\POV_BASE\stm32_lib\inc -IH:\WORKSPACE\ARM\POV_Display\POV_BASE\cmsis_boot -IH:\WORKSPACE\ARM\POV_Display\POV_BASE\stm32_lib -IH:\WORKSPACE\ARM\POV_Display\POV_BASE">
+      <target file="RC5.o" lastModified="14bacb81934">
+         <source file="..\..\..\src\RC5.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_rtc.o" lastModified="14bacb81366">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rtc.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_tim.o" lastModified="14bacb81675">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_tim.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="FM.o" lastModified="14bacb80bb1">
+         <source file="..\..\..\src\FM.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_adc.o" lastModified="14bacb80d74">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_adc.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="UI.o" lastModified="14bacb80b15">
+         <source file="..\..\..\src\UI.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_flash.o" lastModified="14bacb817e9">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_flash.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="sound.o" lastModified="14bacb80982">
+         <source file="..\..\..\src\sound.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="string.o" lastModified="14bacb808c5">
+         <source file="..\..\..\src\string.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_dma.o" lastModified="14bacb81036">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_dma.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_exti.o" lastModified="14bacb81870">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_exti.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="system_stm32f0xx_temp.o" lastModified="14bacb81138">
+         <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_gpio.o" lastModified="14bacb811d3">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_syscfg.o" lastModified="14bacb819c3">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_syscfg.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="motor.o" lastModified="14bacb810af">
+         <source file="..\..\..\src\motor.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="debug.o" lastModified="14bacb816fd">
+         <source file="..\..\..\src\debug.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_rcc.o" lastModified="14bacb80ca7">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_pwr.o" lastModified="14bacb81a63">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_pwr.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_dac.o" lastModified="14bacb81b85">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_dac.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_misc.o" lastModified="14bacb81aea">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_misc.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="startup_stm32f0xx.o" lastModified="14bacb80fa6">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_usart.o" lastModified="14bacb8148e">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_usart.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="stm32f0xx_iwdg.o" lastModified="14bacb80e81">
+         <source file="..\..\..\stm32_lib\src\stm32f0xx_iwdg.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="timework.o" lastModified="14bacb80e08">
+         <source file="..\..\..\src\timework.c" lastModified="14baa51ab70"/>
+      </target>
+      <target file="main.o" lastModified="14bacb80f83">
+         <source file="..\..\..\src\main.c" lastModified="14baa51ab70"/>
+      </target>
+   </processor>
+</history>
