@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "FM.h"
 #include "stm32f0xx_tim.h"
@@ -11,6 +37,7 @@
 /* Private define ------------------------------------------------------------*/
 const uint16_t FMFreq[12] ={FREQ19K, FREQ20K, FREQ21K, FREQ22K, FREQ23K, FREQ24K,
 							FREQ25K, FREQ26K, FREQ27K, FREQ28K, FREQ29K, FREQ30K};
+
 
 /* Private macro -------------------------------------------------------------*/
 #define BitSet(p,m) ((p) |= (1<<(m)))
@@ -27,14 +54,16 @@ volatile uint8_t powMul = 14; //from 8 to 25(?); higher = more power to rotor
 RTC_TimeTypeDef TimeTemp;
 RTC_DateTypeDef DateTemp;
 
+
 /* Extern variables ----------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 void delay_ms(volatile uint32_t);
 
+
 /* Private functions ---------------------------------------------------------*/
 /*******************************************************************************
 * Function Name  : FMInit
-* Description    : Initialize Frequency   Modulation & Power
+* Description    : Initialize frequency modulation & power module
 *******************************************************************************/
 void FMInit()
 {
@@ -112,7 +141,7 @@ uint16_t FMGetFreq(){
 
 /*******************************************************************************
 * Function Name  : FMSendData
-* Description    : Send data to rotor through FM
+* Description    : Send data to rotor via frequency modulation
 * Input			 : data [32bit], amount [8,16,32]
 ********************************************************************************/
 void FMSendData(uint32_t inData, uint8_t amount)

@@ -1,31 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=Rotor.map -O1 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Rotor -TC:\CooCox\CoIDE\configuration\ProgramData\Rotor/arm-gcc-link.ld -g -L..\..\.. -lm">
-      <target file="Rotor.elf" lastModified="14b64d69ed1">
-         <source file="..\obj\stm32f10x_rtc.o" lastModified="14b5b19069a"/>
-         <source file="..\obj\string.o" lastModified="14b5b19089e"/>
-         <source file="..\obj\stm32f10x_tim.o" lastModified="14b5b190fe2"/>
-         <source file="..\obj\UI.o" lastModified="14b5b191408"/>
-         <source file="..\obj\system_stm32f10x.o" lastModified="14b5b19157f"/>
-         <source file="..\obj\startup_stm32f10x_md.o" lastModified="14b5b1916e7"/>
-         <source file="..\obj\stm32f10x_pwr.o" lastModified="14b5b1918cb"/>
-         <source file="..\obj\timework.o" lastModified="14b5b191b1d"/>
-         <source file="..\obj\stm32f10x_gpio.o" lastModified="14b5b191e2b"/>
-         <source file="..\obj\main.o" lastModified="14b64d69aca"/>
-         <source file="..\obj\font.o" lastModified="14b5b19235b"/>
-         <source file="..\obj\stm32f10x_rcc.o" lastModified="14b5b192659"/>
-         <source file="..\obj\stm32f10x_exti.o" lastModified="14b5b19284d"/>
-         <source file="..\obj\stm32f10x_adc.o" lastModified="14b5b192bd7"/>
-         <source file="..\obj\draw.o" lastModified="14b5b192f42"/>
-         <source file="..\obj\stm32f10x_usart.o" lastModified="14b5b19329e"/>
-         <source file="..\obj\stm32f10x_flash.o" lastModified="14b5b193638"/>
-         <source file="..\obj\display_HAL.o" lastModified="14b5b1938e8"/>
-         <source file="..\obj\TxRx.o" lastModified="14b64d66320"/>
-         <source file="..\obj\debug.o" lastModified="14b5b193c91"/>
-         <source file="..\obj\stm32f10x_dma.o" lastModified="14b5b193ed3"/>
-         <source file="..\obj\misc.o" lastModified="14b5b1940a8"/>
-         <source file="..\obj\stm32f10x_spi.o" lastModified="14b5b1943a6"/>
-         <source file="..\obj\stm32f10x_iwdg.o" lastModified="14b5b19459a"/>
+      <target file="Rotor.elf" lastModified="14bbfcdff4d">
+         <source file="..\obj\stm32f10x_rtc.o" lastModified="14bbc6f9617"/>
+         <source file="..\obj\string.o" lastModified="14bbc6f96ea"/>
+         <source file="..\obj\stm32f10x_tim.o" lastModified="14bbc6f98ae"/>
+         <source file="..\obj\UI.o" lastModified="14bbfcdfc74"/>
+         <source file="..\obj\system_stm32f10x.o" lastModified="14bbc6f9a95"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="14bbc6f9b25"/>
+         <source file="..\obj\stm32f10x_pwr.o" lastModified="14bbc6f9bdb"/>
+         <source file="..\obj\timework.o" lastModified="14bbc6f9cab"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="14bbc6f9d8a"/>
+         <source file="..\obj\main.o" lastModified="14bbfca5495"/>
+         <source file="..\obj\font.o" lastModified="14bbc6f9f3f"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="14bbc6fa026"/>
+         <source file="..\obj\stm32f10x_exti.o" lastModified="14bbc6fa0e4"/>
+         <source file="..\obj\stm32f10x_adc.o" lastModified="14bbc6fa1e4"/>
+         <source file="..\obj\draw.o" lastModified="14bbfbcb3ae"/>
+         <source file="..\obj\stm32f10x_usart.o" lastModified="14bbc6fa3e1"/>
+         <source file="..\obj\stm32f10x_flash.o" lastModified="14bbc6fa4f1"/>
+         <source file="..\obj\display_HAL.o" lastModified="14bbfbcb4b5"/>
+         <source file="..\obj\TxRx.o" lastModified="14bbfbcb5c5"/>
+         <source file="..\obj\debug.o" lastModified="14bbc6fa74d"/>
+         <source file="..\obj\stm32f10x_dma.o" lastModified="14bbc6fa820"/>
+         <source file="..\obj\misc.o" lastModified="14bbc6fa8db"/>
+         <source file="..\obj\stm32f10x_spi.o" lastModified="14bbc6fa9cd"/>
+         <source file="..\obj\stm32f10x_iwdg.o" lastModified="14bbc6faa85"/>
       </target>
    </processor>
 </history>

@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "UI.h"
 
@@ -8,6 +34,7 @@
 #include "debug.h"
 #include "string.h"
 #include "sound.h"
+
 
 /* Private typedef -----------------------------------------------------------*/
 typedef enum {FALSE=0, TRUE=!FALSE} bool;
@@ -136,7 +163,7 @@ void delay_ms(volatile uint32_t);
 /* Private functions ---------------------------------------------------------*/
 /*******************************************************************************
 * Function Name  : UIInit
-* Description    :
+* Description    : Initialize User Interface
 *******************************************************************************/
 void UIInit()
 {
@@ -171,7 +198,7 @@ void UIInit()
 
 /*******************************************************************************
 * Function Name  : UIDispatcher
-* Description    :
+* Description    : Handle new button event
 * Input			 : button number
 *******************************************************************************/
 void UIDispatcher(uint8_t button)
@@ -323,7 +350,7 @@ void MenuChange(MenuItem* NewMenu)
 
 /*******************************************************************************
 * Function Name  : SettingsToBkp
-* Description    :
+* Description    : Write settings variables to debug registers
 *******************************************************************************/
 void SettingsToBkp(uint8_t bkpNum)
 {
@@ -353,7 +380,10 @@ void SettingsToBkp(uint8_t bkpNum)
 				(sett.colTime << (3)) |				//3
 				(sett.colArrow << (3+3)) |			//3
 				(sett.colHMrk << (3+3+3)) |			//3
-				(sett.colPend << (3+3+3+3));		//3
+				(sett.colPend << (3+3+3+3)) |		//3
+				(sett.OnTime << (3+3+3+3+3)) |		//5
+				(sett.OffTime << (3+3+3+3+3+5)) |	//5
+				(sett.OnTime << (3+3+3+3+3+5+5));	//1
 		break;
 
 	default:
@@ -361,45 +391,48 @@ void SettingsToBkp(uint8_t bkpNum)
 		break;
 	}
 
-	RTC_WriteBackupRegister(bkpNum, data);
+	RTC_WriteBackupRegister((uint32_t)bkpNum, data);
 }
 
 
 /*******************************************************************************
 * Function Name  : BkpToSett
-* Description    :
+* Description    : Read Backup registers and write it to settings variables
 *******************************************************************************/
 void BkpToSett(uint8_t bkpNum)
 {
-const uint16_t numOfBits[] = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095};
+#define BIT_MASK(x) ((1<<(x))-1)
 
 	uint32_t data = RTC_ReadBackupRegister((uint32_t)bkpNum);
 
 	switch(bkpNum)
 	{
 	case 0:
-		sett.prevMode 	= (data) 				& numOfBits[2];
-		sett.metr4Strk	= (data >> (2))			& numOfBits[1];
-		sett.toneM1		= (data >> (2+1))		& numOfBits[6];
-		sett.toneM2		= (data >> (2+1+6))		& numOfBits[6];
-		sett.toneHrStrk	= (data >> (2+1+6+6))	& numOfBits[6];
-		sett.corr		= (data >> (2+1+6+6+6))	& numOfBits[10];
+		sett.prevMode 	= (data) 				& BIT_MASK(2);
+		sett.metr4Strk	= (data >> (2))			& BIT_MASK(1);
+		sett.toneM1		= (data >> (2+1))		& BIT_MASK(6);
+		sett.toneM2		= (data >> (2+1+6))		& BIT_MASK(6);
+		sett.toneHrStrk	= (data >> (2+1+6+6))	& BIT_MASK(6);
+		sett.corr		= (data >> (2+1+6+6+6))	& BIT_MASK(10);
 		break;
 
 	case 1:
-		sett.toneClick 	= (data) 				& numOfBits[6];
-		sett.volClick	= (data >> (6))			& numOfBits[3];
-		sett.volMetr	= (data >> (6+3))		& numOfBits[3];
-		sett.volHrStrk	= (data >> (6+3+3))		& numOfBits[3];
-		sett.metrBPM	= (data >> (6+3+3+3))	& numOfBits[7];
+		sett.toneClick 	= (data) 				& BIT_MASK(6);
+		sett.volClick	= (data >> (6))			& BIT_MASK(3);
+		sett.volMetr	= (data >> (6+3))		& BIT_MASK(3);
+		sett.volHrStrk	= (data >> (6+3+3))		& BIT_MASK(3);
+		sett.metrBPM	= (data >> (6+3+3+3))	& BIT_MASK(7);
 		break;
 
 	case 2:
-		sett.colDate	= (data)				& numOfBits[3];
-		sett.colTime	= (data >> (3))			& numOfBits[3];
-		sett.colArrow	= (data >> (3+3))		& numOfBits[3];
-		sett.colHMrk	= (data >> (3+3+3))		& numOfBits[3];
-		sett.colPend	= (data >> (3+3+3+3))	& numOfBits[3];
+		sett.colDate	= (data)				& BIT_MASK(3);
+		sett.colTime	= (data >> (3))			& BIT_MASK(3);
+		sett.colArrow	= (data >> (3+3))		& BIT_MASK(3);
+		sett.colHMrk	= (data >> (3+3+3))		& BIT_MASK(3);
+		sett.colPend	= (data >> (3+3+3+3))	& BIT_MASK(3);
+		sett.OnTime		= (data >> (3+3+3+3+3))	& BIT_MASK(5);
+		sett.OffTime	= (data >> (3+3+3+3+3+5))	& BIT_MASK(5);
+		sett.WorkOnOff	= (data >> (3+3+3+3+3+5+5))	& BIT_MASK(1);
 		break;
 
 	default:
@@ -665,7 +698,7 @@ void SetDown()
 
 /*******************************************************************************
 * Function Name  : SendSett
-* Description    : Send settings
+* Description    : Send current settings to the Rotor
 *******************************************************************************/
 void SendSett()
 {
@@ -808,7 +841,7 @@ void SendSett()
 
 /*******************************************************************************
 * Function Name  : SendSettArray
-* Description    : Send settings to rotor
+* Description    : Send all settings to Rotor
 *******************************************************************************/
 void SendSettArray()
 {
@@ -823,7 +856,7 @@ void SendSettArray()
 
 /*******************************************************************************
 * Function Name  : SendPWM
-* Description    : Send PWM brightness
+* Description    : Send PWM brightness to Rotor
 *******************************************************************************/
 void SendPWM(uint16_t value)
 {
@@ -834,7 +867,7 @@ void SendPWM(uint16_t value)
 
 /*******************************************************************************
 * Function Name  : RTCCalibrate
-* Description    :
+* Description    : Write RTC Calibration registers
 *******************************************************************************/
 void RTCCalibrate()
 {
@@ -845,6 +878,7 @@ void RTCCalibrate()
 	DebugSendNumWDesc("CalP =", CalP);
 	DebugSendNumWDesc("CalM =", CalM);
 }
+
 
 /*******************************************************************************
 * Function Name  : MetrEnter

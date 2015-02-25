@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "sound.h"
 #include "stm32f0xx_rcc.h"
@@ -63,6 +89,7 @@ const uint16_t Triangle12bit[32] = {
 /* Note frequencies (in Hz)
  * from C - low octave
  * till H - 4th octale
+ * octave length - 12
  */
 const uint16_t NoteMass[12*5] =
 {
@@ -74,19 +101,18 @@ const uint16_t NoteMass[12*5] =
 };
 
 
-
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint16_t DAC12bit[32] = {0};
+uint16_t DAC12bit[32] = {0}; //current DAC massive
 uint8_t currentWave = 0;
 uint8_t currentVolume = 1;
 
-uint16_t soundTimer = 0;
+volatile uint16_t soundTimer = 0;
 
 bool noteState = FALSE; //playing/not playing
 
 struct SoundCBType SoundCB[BUF_SIZE]; //circular buffer
-uint8_t cbStart = 0, cbEnd = 0;
+uint8_t cbStart = 0, cbEnd = 0; //and it's indexes
 
 
 /* Extern variables ----------------------------------------------------------*/
@@ -159,7 +185,7 @@ void SoundInit()
 
 /*******************************************************************************
 * Function Name  : SoundSetWave
-* Description    :
+* Description    : Set wave type for DAC + set volume
 *******************************************************************************/
 void SoundSetWave(uint8_t wave)
 {
@@ -192,7 +218,7 @@ void SoundSetWave(uint8_t wave)
 
 /*******************************************************************************
 * Function Name  : SoundSetVolume
-* Description    :
+* Description    : Set volume
 *******************************************************************************/
 void SoundSetVolume(uint8_t volume)
 {
@@ -210,7 +236,7 @@ void SoundSetVolume(uint8_t volume)
 
 /*******************************************************************************
 * Function Name  : SoundSetFreq
-* Description    :
+* Description    : Set note frequency
 *******************************************************************************/
 void SoundSetFreq(uint16_t freq)
 {
@@ -228,7 +254,7 @@ void SoundSetFreq(uint16_t freq)
 
 /*******************************************************************************
 * Function Name  : SoundPlayNote
-* Description    :
+* Description    : Add note to circular buffer
 *******************************************************************************/
 int SoundPlayNote(uint16_t note, uint8_t wave, uint16_t noteLen)
 {
@@ -246,7 +272,7 @@ int SoundPlayNote(uint16_t note, uint8_t wave, uint16_t noteLen)
 
 /*******************************************************************************
 * Function Name  : SoundDispatcher
-* Description    :
+* Description    : Process sound playing
 *******************************************************************************/
 void SoundDispatcher()
 {

@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
 #include "stm32f10x_adc.h"
@@ -140,7 +166,6 @@ void Init()
 	NVIC_InitTypeDef NVIC_InitStructure;
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 
-	// RCC system reset(for debug purpose)
 	RCC_DeInit();
 
 	// Enable HSI
@@ -390,7 +415,7 @@ int main(void)
     		flagNewLap = FALSE;
 
 /*todo
-* voltage sensor on GPIOA.0
+* voltage sensor on GPIOA.0 - ?
 * ...
 */
 
@@ -426,7 +451,7 @@ int main(void)
 
 /*******************************************************************************
 * Function Name  : RCC_IRQHandler
-* Description    : LSE is stable
+* Description    : "LSE is stable" - ~1.1sec after system start
 *******************************************************************************/
 void RCC_IRQHandler(void)
 {
@@ -586,7 +611,7 @@ void TIM1_UP_IRQHandler()
 
 /*******************************************************************************
 * Function Name  : Dispatcher
-* Description    :
+* Description    : Main picture dispatcher
 *******************************************************************************/
 int Dispatcher()
 {
@@ -669,5 +694,3 @@ int Dispatcher()
 
 	return 0;
 }
-
-

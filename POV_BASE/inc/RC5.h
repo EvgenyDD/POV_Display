@@ -1,6 +1,27 @@
+/**
+  ******************************************************************************
+  * @file    RC5.h
+  * @author  MCD Application Team
+  * @version V1.0.0
+  * @date    03/16/2010
+  * @brief   This file contains the RC5 functions prototypes.
+  ******************************************************************************
+  * @copy
+  *
+  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  *
+  * COPYRIGHT 2010 STMicroelectronics
+  */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef RC5_H
 #define RC5_H
+
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx.h"

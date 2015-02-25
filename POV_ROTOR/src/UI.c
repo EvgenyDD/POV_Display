@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "UI.h"
 #include "draw.h"
@@ -5,7 +31,7 @@
 #include "stm32f10x_rtc.h"
 #include "string.h"
 
-/* text and graphic objects
+/* text and graphic objects-#
  * 3 temp menu strings	 	10, 11, 12
  * 1 string for time		13
  * 1 string to date			14
@@ -170,6 +196,7 @@ volatile signed int metronomePeriod = 468/2;
 
 SettingsArray sett;
 
+
 /* Extern variables ----------------------------------------------------------*/
 extern const char font3x5[];
 extern const char font5x8[];
@@ -179,7 +206,7 @@ extern const char font5x8[];
 /* Private functions ---------------------------------------------------------*/
 /*******************************************************************************
 * Function Name  : UI_Init
-* Description    :
+* Description    : Initialize user interface
 *******************************************************************************/
 void UI_Init()
 {
@@ -196,7 +223,7 @@ void UI_Init()
 
 /*******************************************************************************
 * Function Name  : UI_Dispatcher
-* Description    :
+* Description    : User interface dispatcher
 *******************************************************************************/
 void UI_Dispatcher()
 {
@@ -263,14 +290,14 @@ void UI_Dispatcher()
 		/* Normal work mode */
 		switch(currModeNum)
 		{
-		case 0:
+		case 0: //MAnalogClock
 			RTC_CntToTimeDate(RTC_GetCounter(), &RTC_TimeDate);
 			TimeToString(Time, &RTC_TimeDate);		DateToString(Date, &RTC_TimeDate);
 			DisplayTextAdd(13, Time, &font5x8[0], sett.colTime, 174, 28-8, ROUTE_TOP, 2);
 			DisplayTextAdd(14, Date, &font5x8[0], sett.colDate, 66, 28-8, ROUTE_BOTTOM, 2);
 			break;
 
-		case 32:
+		case 32: //MDigitalClock
 			RTC_CntToTimeDate(RTC_GetCounter(), &RTC_TimeDate);
 
 			uint8_t hourArrow = (200-5* (10*(RTC_TimeDate.hour%12) + RTC_TimeDate.minute/6) /3) %200;
@@ -282,7 +309,7 @@ void UI_Dispatcher()
 			DisplayObjectAdd(24, TYPE_LINE, sett.colArrow, 0, 30, (200-200*(RTC_TimeDate.second)/60) %200, 0);
 			break;
 
-		case 64:
+		case 64: //MDAClock
 			RTC_CntToTimeDate(RTC_GetCounter(), &RTC_TimeDate);
 
 			hourArrow = (200-5* (10*(RTC_TimeDate.hour%12) + RTC_TimeDate.minute/6) /3) %200;
@@ -294,8 +321,8 @@ void UI_Dispatcher()
 			DisplayObjectAdd(24, TYPE_LINE, sett.colArrow, 0, 30, (200-200*(RTC_TimeDate.second)/60) %200, 0);
 
 			TimeToString(Time, &RTC_TimeDate);	DateToString(Date, &RTC_TimeDate);
-			DisplayTextAdd(13, Time, &font5x8[0], sett.colTime, 174, 28-8, ROUTE_TOP, 2);
-			DisplayTextAdd(14, Date, &font5x8[0], sett.colDate, 66, 28-8, ROUTE_BOTTOM, 2);
+			DisplayTextAdd(13, Time, &font5x8[0], sett.colTime, 174, 28-8-6, ROUTE_TOP, 2);
+			DisplayTextAdd(14, Date, &font5x8[0], sett.colDate, 66, 28-8-6, ROUTE_BOTTOM, 2);
 			break;
 
 		case 96:
@@ -319,7 +346,7 @@ void UI_Dispatcher()
 
 /*******************************************************************************
 * Function Name  : UI_NewMenuMode
-* Description    :
+* Description    : New menu mode number received
 *******************************************************************************/
 void UI_NewMenuMode(uint8_t modeID)
 {
@@ -374,7 +401,7 @@ void UI_NewMenuMode(uint8_t modeID)
 
 /*******************************************************************************
 * Function Name  : UI_NewParameter
-* Description    :
+* Description    : New menu parameter received
 *******************************************************************************/
 void UI_NewParameter(uint16_t paramValue)
 {
@@ -396,7 +423,7 @@ void UI_NewParameter(uint16_t paramValue)
 
 /*******************************************************************************
 * Function Name  : UI_MakeMenuString
-* Description    :
+* Description    : Make Debug string with menu position
 *******************************************************************************/
 void UI_MakeMenuString(char *string, char *source, uint16_t paramValue)
 {
@@ -426,54 +453,51 @@ void UI_MakeMenuString(char *string, char *source, uint16_t paramValue)
 			else
 				ftoa_(-(float)(65536-paramValue)/32, t, 2);
 
-
 			strcat_(string, t);
 			strcat_(string, "sec");
 		}
-
 		else
 		{
 			itoa_(paramValue, t);
 			strcat_(string, t);
 		}
-
-
 	}
 }
 
 
 /*******************************************************************************
 * Function Name  : BkpToSett
-* Description    :
+* Description    : Write backup register value to settings variables
 *******************************************************************************/
 void MakeSettFromNumber(uint8_t bkpNum, uint32_t bkpValue)
 {
-const uint16_t numOfBits[] = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095};
+#define BIT_MASK(x) ((1<<(x))-1)
 
 	switch(bkpNum)
 	{
 	case 0:
-		sett.prevMode 	= (bkpValue) 				& numOfBits[2];
-		sett.metr4Strk	= (bkpValue >> (2))			& numOfBits[1];
-		sett.toneM1		= (bkpValue >> (2+1))		& numOfBits[6];
-		sett.toneM2		= (bkpValue >> (2+1+6))		& numOfBits[6];
-		sett.toneHrStrk	= (bkpValue >> (2+1+6+6))	& numOfBits[6];
-		sett.corr		= (bkpValue >> (2+1+6+6+6))	& numOfBits[10];
+		sett.prevMode 	= (bkpValue) 				& BIT_MASK(2);
+		sett.metr4Strk	= (bkpValue >> (2))			& BIT_MASK(1);
+		sett.toneM1		= (bkpValue >> (2+1))		& BIT_MASK(6);
+		sett.toneM2		= (bkpValue >> (2+1+6))		& BIT_MASK(6);
+		sett.toneHrStrk	= (bkpValue >> (2+1+6+6))	& BIT_MASK(6);
+		sett.corr		= (bkpValue >> (2+1+6+6+6))	& BIT_MASK(10);
 		break;
 
 	case 1:
-		sett.toneClick 	= (bkpValue) 				& numOfBits[6];
-		sett.volClick	= (bkpValue >> (6))			& numOfBits[3];
-		sett.volMetr	= (bkpValue >> (6+3))		& numOfBits[3];
-		sett.volHrStrk	= (bkpValue >> (6+3+3))		& numOfBits[3];
+		sett.toneClick 	= (bkpValue) 				& BIT_MASK(6);
+		sett.volClick	= (bkpValue >> (6))			& BIT_MASK(3);
+		sett.volMetr	= (bkpValue >> (6+3))		& BIT_MASK(3);
+		sett.volHrStrk	= (bkpValue >> (6+3+3))		& BIT_MASK(3);
+		sett.metrBPM	= (bkpValue >> (6+3+3+3))	& BIT_MASK(7);
 		break;
 
 	case 2:
-		sett.colDate	= (bkpValue)				& numOfBits[3];
-		sett.colTime	= (bkpValue >> (3))			& numOfBits[3];
-		sett.colArrow	= (bkpValue >> (3+3))		& numOfBits[3];
-		sett.colHMrk	= (bkpValue >> (3+3+3))		& numOfBits[3];
-		sett.colPend	= (bkpValue >> (3+3+3+3))	& numOfBits[3];
+		sett.colDate	= (bkpValue)				& BIT_MASK(3);
+		sett.colTime	= (bkpValue >> (3))			& BIT_MASK(3);
+		sett.colArrow	= (bkpValue >> (3+3))		& BIT_MASK(3);
+		sett.colHMrk	= (bkpValue >> (3+3+3))		& BIT_MASK(3);
+		sett.colPend	= (bkpValue >> (3+3+3+3))	& BIT_MASK(3);
 		break;
 
 	default:

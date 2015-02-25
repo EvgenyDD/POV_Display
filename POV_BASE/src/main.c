@@ -1,3 +1,29 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx.h"
 #include "stm32f0xx_adc.h"
@@ -62,7 +88,7 @@ RTC_DateTypeDef DateTemp;
 volatile uint16_t AdcData[4];
 
 volatile uint16_t currentSpinFreq = 0;
-uint16_t spinTimer = 0;
+volatile uint16_t spinTimer = 0;
 
 
 /* Extern variables ----------------------------------------------------------*/
@@ -70,7 +96,7 @@ extern StatusYesOrNo RC5_FrameReceived;
 extern SettingsArray sett;
 
 //extern volatile uint8_t powMul;
-extern uint16_t soundTimer;
+extern volatile uint16_t soundTimer;
 
 extern volatile uint16_t metrCounter;
 extern volatile bool metrFlag;
@@ -343,27 +369,34 @@ int main(void)
     {
     	IWDG_ReloadCounter();
 
+
     	static uint32_t lastRTCReg = 0;
     	/* code block that executed every second */
     	if(lastRTCReg != RTC->TR)
     	{
     		lastRTCReg = RTC->TR;
 
+    		static uint32_t light = 0;
+    		light += ((uint32_t)(AdcData[2]*125))>>9;  //[0;1000]
+
+    		uint16_t voltage = (AdcData[1]>>2)*27; //in mV
+
 			static uint8_t counter = 0;
-			if(++counter >= 10)
+			if(++counter >= 8)
 			{
 				counter = 0;
-				uint32_t light = ((uint32_t)(AdcData[2]*125))>>9;  //[0;1000]
-
+				light = light >> 3;
+#if 0
 				DebugSendChar('\n');
 				DebugSendNumWDesc("Battery: ", (AdcData[0]<<3)/5); //in mV
-				DebugSendNumWDesc("Voltage: ", (AdcData[1]>>2)*27);//in mV
+				DebugSendNumWDesc("Voltage: ", voltage);
 				//DebugSendNumWDesc("Temp: ", AdcData[3]);
 				DebugSendNumWDesc("Light: ", light);
 				DebugSendChar('\n');
-
+#endif
 				/* Send luminosity */
 				if(PowerFlag) SendPWM(light<20?20:light);
+				light = 0;
 			}
 
 			/* read current time and date */
@@ -408,31 +441,17 @@ int main(void)
 				}
     		}
 
-/*    		if(PowerFlag)
+    		if(PowerFlag)
     		{
-#define SPIN_FREQ	85
-    			uint8_t temp;
-    			if(abs(currentSpinFreq-SPIN_FREQ)>15)
-    				temp = 3;
-    			else if(abs(currentSpinFreq-SPIN_FREQ)>5)
-    				temp = 1;
-    			else
-					temp = 0;
-
-				if(currentSpinFreq > SPIN_FREQ)
-					MotorSpeedSet(MotorGetSpeed()+temp);
-				else
-					MotorSpeedSet(MotorGetSpeed()-temp);
-    		}*/
+    			MotorSpeedSet((78258 - 4*voltage)/337); //for currentSpinFreq = 90ms = 11.1Hz
+    			//MotorSpeedSet((79805 - 4*voltage)/422); //for currentSpinFreq = 100ms = 10Hz
+    		}
 #if 1
-    	/*	DebugSendNumWDesc("Spin: ", MotorGetSpeed());
-    		DebugSendNumWDesc("Speed: ", currentSpinFreq);*/
-
-
     		/* send debug message every second */
-    		DebugSendNumWDesc("spin:", currentSpinFreq);
-    		DebugSendNumWDesc("spd:", MotorGetSpeed());
-    		//Debug_OutSysTimeDate();
+    		//DebugSendNumWDesc("spin:", currentSpinFreq);
+    		//DebugSendNumWDesc("spd:", MotorGetSpeed());
+    		DebugSendChar('\n');
+    		Debug_OutSysTimeDate();
 #endif
     	}
 
@@ -513,15 +532,13 @@ int main(void)
 					//RIGHT Button
 					case 15:
 					case 47:
-						//if(PowerFlag) UIDispatcher(B_RIGHT);
-						MotorSpeedSet(MotorGetSpeed()+1);
+						if(PowerFlag) UIDispatcher(B_RIGHT);
 						break;
 
 					//LEFT Button
 					case 14:
 					case 46:
-						//if(PowerFlag) UIDispatcher(B_LEFT);
-						MotorSpeedSet(MotorGetSpeed()-1);
+						if(PowerFlag) UIDispatcher(B_LEFT);
 						break;
 
 					//UP Button
@@ -536,6 +553,8 @@ int main(void)
 
 					default:
 						DebugSendNumWDesc("->FAIL RC5 command: ", RC5_Frame.Command);
+						SoundSetVolume(sett.volClick);
+						SoundPlayNote(12*3+E, WAVE_SIN, 20);
 					}
 				}
 			}
@@ -689,7 +708,7 @@ int main(void)
 
 /*******************************************************************************
 * Function Name  : Debug_OutSysTimeDate
-* Description    : Send to debug time and date
+* Description    : Send time and date to debug interface
 *******************************************************************************/
 void Debug_OutSysTimeDate()
 {

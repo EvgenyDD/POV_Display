@@ -1,77 +1,77 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O1 -std=c99 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -IE:\EVGENY_FOLDER\ARM\POV_ROTOR\cmsis -IE:\EVGENY_FOLDER\ARM\POV_ROTOR\cmsis_boot -IE:\EVGENY_FOLDER\ARM -IE:\EVGENY_FOLDER\ARM\POV_ROTOR\stm_lib -IE:\EVGENY_FOLDER\ARM\POV_ROTOR -IE:\EVGENY_FOLDER\ARM\POV_ROTOR\stm_lib\inc -IE:\EVGENY_FOLDER\ARM\POV_ROTOR\inc">
-      <target file="stm32f10x_spi.o" lastModified="14b5b1943a6">
-         <source file="..\..\..\stm_lib\src\stm32f10x_spi.c" lastModified="1495580b8e9"/>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O1 -std=c99 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR\cmsis_boot -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR\cmsis -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR\stm_lib\inc -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR\stm_lib -IH:\WORKSPACE\ARM\POV_Display -IH:\WORKSPACE\ARM\POV_Display\POV_ROTOR\inc">
+      <target file="stm32f10x_spi.o" lastModified="14bbc6fa9cd">
+         <source file="..\..\..\stm_lib\src\stm32f10x_spi.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_iwdg.o" lastModified="14b5b19459a">
-         <source file="..\..\..\stm_lib\src\stm32f10x_iwdg.c" lastModified="14adeb0fcee"/>
+      <target file="stm32f10x_iwdg.o" lastModified="14bbc6faa85">
+         <source file="..\..\..\stm_lib\src\stm32f10x_iwdg.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="TxRx.o" lastModified="14b64d66320">
-         <source file="..\..\..\src\TxRx.c" lastModified="14b64d65312"/>
+      <target file="TxRx.o" lastModified="14bbfbcb5c5">
+         <source file="..\..\..\src\TxRx.c" lastModified="14bbfbcaafc"/>
       </target>
-      <target file="draw.o" lastModified="14b5b192f42">
-         <source file="..\..\..\src\draw.c" lastModified="14b36bdd28b"/>
+      <target file="draw.o" lastModified="14bbfbcb3ae">
+         <source file="..\..\..\src\draw.c" lastModified="14bbfbcab20"/>
       </target>
-      <target file="stm32f10x_rcc.o" lastModified="14b5b192659">
-         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="1495580a09b"/>
+      <target file="stm32f10x_rcc.o" lastModified="14bbc6fa026">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_pwr.o" lastModified="14b5b1918cb">
-         <source file="..\..\..\stm_lib\src\stm32f10x_pwr.c" lastModified="14a29b0cf20"/>
+      <target file="stm32f10x_pwr.o" lastModified="14bbc6f9bdb">
+         <source file="..\..\..\stm_lib\src\stm32f10x_pwr.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="misc.o" lastModified="14b5b1940a8">
-         <source file="..\..\..\stm_lib\src\misc.c" lastModified="149563876a7"/>
+      <target file="UI.o" lastModified="14bbfcdfc74">
+         <source file="..\..\..\src\UI.c" lastModified="14bbfcdf465"/>
       </target>
-      <target file="UI.o" lastModified="14b5b191408">
-         <source file="..\..\..\src\UI.c" lastModified="14b44a84433"/>
+      <target file="misc.o" lastModified="14bbc6fa8db">
+         <source file="..\..\..\stm_lib\src\misc.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="string.o" lastModified="14b5b19089e">
-         <source file="..\..\..\src\string.c" lastModified="14b36cf88b9"/>
+      <target file="string.o" lastModified="14bbc6f96ea">
+         <source file="..\..\..\src\string.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="startup_stm32f10x_md.o" lastModified="14b5b1916e7">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="14957f4c4a7"/>
+      <target file="startup_stm32f10x_md.o" lastModified="14bbc6f9b25">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="debug.o" lastModified="14b5b193c91">
-         <source file="..\..\..\src\debug.c" lastModified="14b36be49de"/>
+      <target file="debug.o" lastModified="14bbc6fa74d">
+         <source file="..\..\..\src\debug.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_flash.o" lastModified="14b5b193638">
-         <source file="..\..\..\stm_lib\src\stm32f10x_flash.c" lastModified="1495580c780"/>
+      <target file="stm32f10x_flash.o" lastModified="14bbc6fa4f1">
+         <source file="..\..\..\stm_lib\src\stm32f10x_flash.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_gpio.o" lastModified="14b5b191e2b">
-         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="14955809e9c"/>
+      <target file="stm32f10x_gpio.o" lastModified="14bbc6f9d8a">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_rtc.o" lastModified="14b5b19069a">
-         <source file="..\..\..\stm_lib\src\stm32f10x_rtc.c" lastModified="14a29b0cf08"/>
+      <target file="stm32f10x_rtc.o" lastModified="14bbc6f9617">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rtc.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_exti.o" lastModified="14b5b19284d">
-         <source file="..\..\..\stm_lib\src\stm32f10x_exti.c" lastModified="1495580a56d"/>
+      <target file="stm32f10x_exti.o" lastModified="14bbc6fa0e4">
+         <source file="..\..\..\stm_lib\src\stm32f10x_exti.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="display_HAL.o" lastModified="14b5b1938e8">
-         <source file="..\..\..\src\display_HAL.c" lastModified="14b36ce3d5d"/>
+      <target file="display_HAL.o" lastModified="14bbfbcb4b5">
+         <source file="..\..\..\src\display_HAL.c" lastModified="14bbfbcab89"/>
       </target>
-      <target file="system_stm32f10x.o" lastModified="14b5b19157f">
-         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="1495d393c04"/>
+      <target file="system_stm32f10x.o" lastModified="14bbc6f9a95">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="font.o" lastModified="14b5b19235b">
-         <source file="..\..\..\src\font.c" lastModified="14b3eb17866"/>
+      <target file="font.o" lastModified="14bbc6f9f3f">
+         <source file="..\..\..\src\font.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_tim.o" lastModified="14b5b190fe2">
-         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="14998aa277f"/>
+      <target file="stm32f10x_adc.o" lastModified="14bbc6fa1e4">
+         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_adc.o" lastModified="14b5b192bd7">
-         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="1495580da94"/>
+      <target file="stm32f10x_tim.o" lastModified="14bbc6f98ae">
+         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_dma.o" lastModified="14b5b193ed3">
-         <source file="..\..\..\stm_lib\src\stm32f10x_dma.c" lastModified="1495580adc8"/>
+      <target file="stm32f10x_dma.o" lastModified="14bbc6fa820">
+         <source file="..\..\..\stm_lib\src\stm32f10x_dma.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="timework.o" lastModified="14b5b191b1d">
-         <source file="..\..\..\src\timework.c" lastModified="14b36d0530e"/>
+      <target file="timework.o" lastModified="14bbc6f9cab">
+         <source file="..\..\..\src\timework.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="main.o" lastModified="14b64d69aca">
-         <source file="..\..\..\src\main.c" lastModified="14b64d689b3"/>
+      <target file="main.o" lastModified="14bbfca5495">
+         <source file="..\..\..\src\main.c" lastModified="14bbfbf30dc"/>
       </target>
-      <target file="stm32f10x_usart.o" lastModified="14b5b19329e">
-         <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="1495580e1cb"/>
+      <target file="stm32f10x_usart.o" lastModified="14bbc6fa3e1">
+         <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="14baa4f1b30"/>
       </target>
    </processor>
 </history>

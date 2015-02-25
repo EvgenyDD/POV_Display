@@ -1,22 +1,37 @@
+/*******************************************************************************
+ * The MIT License
+ *
+ * Copyright (c) 2015 Evgeny Dolgalev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *******************************************************************************
+ */
+
 /* Includes ------------------------------------------------------------------*/
 #include "motor.h"
 #include "UI.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-/*const uint16_t spinFrequency[] ={
-		125, 111, //8
-		100, 91, 83, 77, 71, //10
-		67,	62, 59, 56, 53, //15
-		50, 48, 45, 43, 42, //20
-		40, 38, 37, 35, 34, //25
-		33};//30
-*/
-
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-//volatile uint16_t currentSpinFreq = 0;
-
 /* Extern variables ----------------------------------------------------------*/
 //extern SettingsArray sett;
 
@@ -84,36 +99,3 @@ void MotorSpeedSet(uint16_t speed)
 uint16_t MotorGetSpeed(){
 	return TIM16->CCR1;
 }
-
-#if 0
-/*******************************************************************************
-* Function Name  : MotorSetCurrSpin
-* Return 		 : Input real spin frequency
-*******************************************************************************/
-void MotorSetCurrSpin(uint16_t value)
-{
-	currentSpinFreq = value;
-}
-
-
-/*******************************************************************************
-* Function Name  : MotorSpinDispatcher
-* Return 		 : Make motor spin frequency stable
-*******************************************************************************/
-void MotorSpinDispatcher()
-{
-	uint8_t temp;
-
-	if(abs(currentSpinFreq - spinFrequency[sett.spinFreq-8])>15)
-		temp = 3;
-	else if(abs(currentSpinFreq - spinFrequency[sett.spinFreq-8])>5)
-		temp = 1;
-	else
-		temp = 0;
-
-	if(currentSpinFreq > spinFrequency[sett.spinFreq-8])
-		MotorSpeedSet(MotorGetSpeed()+temp);
-	else
-		MotorSpeedSet(MotorGetSpeed()-temp);
-}
-#endif

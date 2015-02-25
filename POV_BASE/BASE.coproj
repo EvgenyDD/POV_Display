@@ -93,8 +93,8 @@
     <File name="cmsis_core/core_cmInstr.h" path="cmsis_core/core_cmInstr.h" type="1"/>
     <File name="src/motor.c" path="src/motor.c" type="1"/>
     <File name="inc/timework.h" path="inc/timework.h" type="1"/>
-    <File name="stm32_lib/src/stm32f0xx_flash.c" path="stm32_lib/src/stm32f0xx_flash.c" type="1"/>
     <File name="cmsis_boot/system_stm32f0xx_temp.c" path="cmsis_boot/system_stm32f0xx_temp.c" type="1"/>
+    <File name="stm32_lib/src/stm32f0xx_flash.c" path="stm32_lib/src/stm32f0xx_flash.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="src" path="" type="2"/>
     <File name="stm32_lib/inc/stm32f0xx_iwdg.h" path="stm32_lib/inc/stm32f0xx_iwdg.h" type="1"/>
@@ -107,8 +107,8 @@
     <File name="cmsis_boot/stm32f0xx.h" path="cmsis_boot/stm32f0xx.h" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_adc.c" path="stm32_lib/src/stm32f0xx_adc.c" type="1"/>
     <File name="stm32_lib/inc/stm32f0xx_usart.h" path="stm32_lib/inc/stm32f0xx_usart.h" type="1"/>
-    <File name="cmsis_core/core_cm0.h" path="cmsis_core/core_cm0.h" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_dma.c" path="stm32_lib/src/stm32f0xx_dma.c" type="1"/>
+    <File name="cmsis_core/core_cm0.h" path="cmsis_core/core_cm0.h" type="1"/>
     <File name="stm32_lib/inc/stm32f0xx_dma.h" path="stm32_lib/inc/stm32f0xx_dma.h" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_dac.c" path="stm32_lib/src/stm32f0xx_dac.c" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_pwr.c" path="stm32_lib/src/stm32f0xx_pwr.c" type="1"/>
@@ -117,8 +117,8 @@
     <File name="stm32_lib/src/stm32f0xx_tim.c" path="stm32_lib/src/stm32f0xx_tim.c" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_rcc.c" path="stm32_lib/src/stm32f0xx_rcc.c" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_iwdg.c" path="stm32_lib/src/stm32f0xx_iwdg.c" type="1"/>
-    <File name="inc/FM.h" path="inc/FM.h" type="1"/>
     <File name="inc/string.h" path="inc/string.h" type="1"/>
+    <File name="inc/FM.h" path="inc/FM.h" type="1"/>
     <File name="stm32_lib/inc/stm32f0xx_flash.h" path="stm32_lib/inc/stm32f0xx_flash.h" type="1"/>
     <File name="stm32_lib/src/stm32f0xx_usart.c" path="stm32_lib/src/stm32f0xx_usart.c" type="1"/>
     <File name="stm32_lib/inc/stm32f0xx_dac.h" path="stm32_lib/inc/stm32f0xx_dac.h" type="1"/>
