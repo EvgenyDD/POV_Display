@@ -279,7 +279,7 @@ void UI_Dispatcher()
 				199-7*(strlen(tempStr)/2), 28-8, ROUTE_TOP, 2);
 		tmp = PARENT;
 		DisplayTextAdd(11, (char*)tmp->Text, &font5x8[0], sett.colTime,
-				199-7*(strlen((char*)tmp->Text)/2), 28-8-10, ROUTE_TOP, 2);
+				199-7*(strlen((char*)tmp->Text)/2), 28-8-10, ROUTE_TOP, 2); //narrow to center
 		DisplayTextDisable(12);
 	}
 	else
@@ -329,8 +329,8 @@ void UI_Dispatcher()
 			normal = 50*metronomePos/metronomePeriod;
 			pos = (metronomePos > 0)? 200-normal*(1- (50 - normal)/(3*50)) : normal*-1*(1-(50 + normal)/(3*50));
 
-			DisplayObjectAdd(25, TYPE_LINE, sett.colArrow, 0, 28, pos, 0);
-			DisplayObjectAdd(26, TYPE_POINT, sett.colArrow, 28, 0, pos, 0);
+			DisplayObjectAdd(25, TYPE_LINE, sett.colPend, 0, 28, pos, 0);
+			DisplayObjectAdd(26, TYPE_POINT, sett.colPend, 28, 0, pos, 0);
 
 			temp[0] = '\0';
 			strcat_(temp, "\x92\xa5\xac\xaf: ");
@@ -350,13 +350,16 @@ void UI_Dispatcher()
 *******************************************************************************/
 void UI_NewMenuMode(uint8_t modeID)
 {
+	static bool wasInParamSet = FALSE;
+
 	/* if user press key during transition */
 	transCounter = 0;
 	UI_Dispatcher();
 
+
 	/* disable old mode graphics */
 	for(uint8_t i=0; i<17; i++)	DisplayObjectDisable(10+i);
-	for(uint8_t i=0; i<6; i++)
+	for(uint8_t i=BitIsSet(modeID, 7)?2:0; i<6; i++)
 	{
 		DisplayTextAdd(10+i, "\x7F", &font5x8[0], sett.colTime, 0, 28, ROUTE_TOP, 2);
 		DisplayTextDisable(10+i);
@@ -366,7 +369,7 @@ void UI_NewMenuMode(uint8_t modeID)
 	inParamSet = BitIsSet(modeID, 3);
 	BitReset(modeID,3);
 
-	transCounter = inParamSet?0:TRANS_DELAY;
+	transCounter = (inParamSet || wasInParamSet)?0:TRANS_DELAY;
 
 	currModeNum = modeID;
 
@@ -387,6 +390,9 @@ void UI_NewMenuMode(uint8_t modeID)
 			break;
 		}
 	}
+
+	if(wasInParamSet) transDir = DIR_DOWN;
+	wasInParamSet = inParamSet;
 
 	if(currModeNum == 32 || currModeNum == 64)
 	{
@@ -449,12 +455,16 @@ void UI_MakeMenuString(char *string, char *source, uint16_t paramValue)
 		if(inParamSet && currModeNum == 148)
 		{
 			if(paramValue < 65000)
-				ftoa_((float)paramValue/32, t, 2);
+				ftoa_((float)paramValue*675/8192, t, 2);
 			else
-				ftoa_(-(float)(65536-paramValue)/32, t, 2);
+				ftoa_(-(float)(65536-paramValue)*675/8192, t, 2);
 
 			strcat_(string, t);
+#ifdef LANG_EN
 			strcat_(string, "sec");
+#else
+			strcat_(string, "\xe1\xa5\xaa" /*сек*/);
+#endif
 		}
 		else
 		{

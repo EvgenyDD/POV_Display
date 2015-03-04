@@ -11,6 +11,7 @@ struct SoundCBType{
 	uint16_t noteFreq;
 	uint8_t wave;
 	uint16_t noteLen;
+	uint8_t volume;
 };
 
 /* Exported constants --------------------------------------------------------*/
@@ -22,11 +23,10 @@ enum Notes{C, Cd, D, Dd, E, F, Fd, G, Gd, A, B, H};
 /* Exported functions ------------------------------------------------------- */
 void SoundInit();
 
-void SoundSetWave(uint8_t);
-void SoundSetVolume(uint8_t);
+void SoundSetWave(uint8_t, uint8_t);
 void SoundSetFreq(uint16_t freq);
 
-int SoundPlayNote(uint16_t, uint8_t, uint16_t);
+int SoundPlayNote(uint16_t, uint8_t, uint16_t, uint8_t);
 void SoundDispatcher();
 
 #endif //SOUND_H

@@ -21,17 +21,17 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="font.c" partName="font.c" path="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/font.c" title="font.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/font.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/font.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_rtc.c" partName="stm32f10x_rtc.c" path="E:/EVGENY_FOLDER/ARM/POV_ROTOR/stm_lib/src/stm32f10x_rtc.c" title="stm32f10x_rtc.c" tooltip="E:/EVGENY_FOLDER/ARM/POV_ROTOR/stm_lib/src/stm32f10x_rtc.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/stm_lib/src/stm32f10x_rtc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5600" selectionTopPixel="3332"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/main.c" title="main.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="14566" selectionTopPixel="5141"/>
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" partName="UI.c" path="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/UI.c" title="UI.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/UI.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/UI.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2385"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15515" selectionTopPixel="4633"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="draw.c" partName="draw.c" path="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/draw.c" title="draw.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/draw.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/draw.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3888" selectionTopPixel="1185"/>
 </editor>
 </editors>
 <views>
@@ -42,7 +42,7 @@
 <element path="/Rotor/src"/>
 </expanded>
 <selection>
-<element path="/Rotor/src/draw.c"/>
+<element path="/Rotor/src/UI.c"/>
 </selection>
 </viewState>
 </view>
@@ -139,8 +139,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/stm_lib/src/stm32f10x_rcc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/stm_lib/inc/stm32f10x_rcc.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/TxRx.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/UI.c"/>
 <editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
@@ -154,62 +152,19 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/TxRx.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/UI.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/debug.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/font.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/UI.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Rotor/src/draw.c"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="13871" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="14695" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="14537" y="0"/>
-</item>
-<item historyLabel="stm32f10x_rcc.c" index="1">
-<position info="not_deleted" x="30526" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="14420" y="0"/>
-</item>
-<item historyLabel="stm32f10x_rcc.c" index="1">
-<position info="not_deleted" x="47530" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="14437" y="0"/>
-</item>
-<item historyLabel="stm32f10x_rcc.h" index="2">
-<position info="not_deleted" x="25646" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="14437" y="0"/>
-</item>
-<item historyLabel="TxRx.c" index="3">
-<position info="not_deleted" x="634" y="0"/>
-</item>
-<item historyLabel="TxRx.c" index="3">
-<position info="not_deleted" x="3917" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="TxRx.c" index="3">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="5204" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3090" y="0"/>
-</item>
-<item historyLabel="TxRx.c" index="3">
+<item historyLabel="TxRx.c" index="1">
 <position info="not_deleted" x="3884" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="13933" y="0"/>
 </item>
-<item historyLabel="TxRx.c" index="3">
+<item historyLabel="TxRx.c" index="1">
 <position info="not_deleted" x="760" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
@@ -221,87 +176,135 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="17330" y="64"/>
 </item>
-<item historyLabel="UI.c" index="4">
+<item historyLabel="UI.c" index="2">
 <position info="not_deleted" x="14107" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="14432" y="0"/>
 </item>
-<item historyLabel="Configuration" index="5"/>
+<item historyLabel="Configuration" index="3"/>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="display_HAL.c" index="6">
+<item historyLabel="display_HAL.c" index="4">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="draw.c" index="7">
+<item historyLabel="draw.c" index="5">
 <position/>
 </item>
-<item historyLabel="font.c" index="8">
+<item historyLabel="font.c" index="6">
 <position info="not_deleted" x="5991" y="38"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="string.c" index="9">
+<item historyLabel="string.c" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="timework.c" index="10">
+<item historyLabel="timework.c" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="TxRx.c" index="11">
+<item historyLabel="TxRx.c" index="9">
 <position info="not_deleted" x="2065" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="debug.c" index="13">
+<item historyLabel="debug.c" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="display_HAL.c" index="6">
+<item historyLabel="display_HAL.c" index="4">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="draw.c" index="7">
+<item historyLabel="draw.c" index="5">
 <position/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="20678" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="timework.c" index="10">
+<item historyLabel="timework.c" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="string.c" index="9">
+<item historyLabel="string.c" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="timework.c" index="10">
+<item historyLabel="timework.c" index="8">
 <position info="not_deleted" x="541" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="1305" y="0"/>
 </item>
-<item historyLabel="TxRx.c" index="11">
+<item historyLabel="TxRx.c" index="9">
 <position info="not_deleted" x="140" y="0"/>
 </item>
-<item historyLabel="UI.c" index="12">
+<item historyLabel="UI.c" index="10">
 <position info="not_deleted" x="19156" y="0"/>
 </item>
-<item historyLabel="draw.c" index="7">
+<item historyLabel="draw.c" index="5">
 <position info="not_deleted" x="106" y="34"/>
 </item>
-<item active="true" historyLabel="UI.c" index="12">
-<position info="not_deleted" x="19156" y="0"/>
+<item historyLabel="UI.c" index="10">
+<position info="not_deleted" x="9908" y="0"/>
+</item>
+<item historyLabel="font.c" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position info="not_deleted" x="18864" y="0"/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position info="not_deleted" x="18909" y="0"/>
+</item>
+<item historyLabel="main.c" index="15">
+<position info="not_deleted" x="14566" y="0"/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position info="not_deleted" x="12460" y="0"/>
+</item>
+<item historyLabel="draw.c" index="16">
+<position info="not_deleted" x="3796" y="2"/>
+</item>
+<item historyLabel="UI.c" index="14">
+<position info="not_deleted" x="12432" y="0"/>
+</item>
+<item historyLabel="draw.c" index="16">
+<position info="not_deleted" x="3888" y="0"/>
+</item>
+<item active="true" historyLabel="UI.c" index="14">
+<position info="not_deleted" x="12432" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -310,51 +313,50 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="draw.c" tooltip="Rotor/src/draw.c">
-<persistable path="/Rotor/src/draw.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="DiscoveryTemplate/main.c">
+<persistable path="/DiscoveryTemplate/main.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="Rotor/src/debug.c">
-<persistable path="/Rotor/src/debug.c"/>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h">
+<persistable path="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h" project="DiscoveryTemplate"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timework.c" tooltip="Rotor/src/timework.c">
-<persistable path="/Rotor/src/timework.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="DiscoveryTemplate/FreeRTOSConfig.h">
+<persistable path="/DiscoveryTemplate/FreeRTOSConfig.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.c" tooltip="Rotor/src/string.c">
-<persistable path="/Rotor/src/string.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_freertos.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_freertos.c">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_freertos.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display_HAL.c" tooltip="Rotor/src/display_HAL.c">
-<persistable path="/Rotor/src/display_HAL.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="sys_make.mk" tooltip="DiscoveryTemplate/src/uGFX/gos/sys_make.mk">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/sys_make.mk"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" tooltip="Rotor/src/UI.c">
-<persistable path="/Rotor/src/UI.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sys_rules.h" tooltip="DiscoveryTemplate/src/uGFX/gos/sys_rules.h">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/sys_rules.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="touch.c" tooltip="DiscoveryTemplate/src/FAST_ILI9328/touch.c">
-<persistable path="/DiscoveryTemplate/src/FAST_ILI9328/touch.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_raw32.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_raw32.c">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_raw32.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.c" tooltip="DiscoveryTemplate/FreeRTOS/Source/queue.c">
-<persistable path="/DiscoveryTemplate/FreeRTOS/Source/queue.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sys_defs.h" tooltip="DiscoveryTemplate/src/uGFX/gmisc/sys_defs.h">
+<persistable path="/DiscoveryTemplate/src/uGFX/gmisc/sys_defs.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.h" tooltip="DiscoveryTemplate/FreeRTOS/Source/include/queue.h">
-<persistable path="/DiscoveryTemplate/FreeRTOS/Source/include/queue.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DejaVuSans32.c" tooltip="DiscoveryTemplate/src/uGFX/gdisp/fonts/DejaVuSans32.c">
+<persistable path="/DiscoveryTemplate/src/uGFX/gdisp/fonts/DejaVuSans32.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_usart.c" tooltip="DiscoveryTemplate/cmsis_lib/source/stm32f4xx_usart.c">
-<persistable path="/DiscoveryTemplate/cmsis_lib/source/stm32f4xx_usart.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gfxconf.h" tooltip="DiscoveryTemplate/src/uGFX/gfxconf.h">
+<persistable path="/DiscoveryTemplate/src/uGFX/gfxconf.h"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="505" subPageIndex="2" verticalPosition="0"/>
-</persistable>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_chibios.h" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_chibios.h">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_chibios.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="DiscoveryTemplate/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/DiscoveryTemplate/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h">
+<persistable path="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h" project="DiscoveryTemplate"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_gpio.h" tooltip="DiscoveryTemplate/cmsis_lib/include/stm32f4xx_gpio.h">
-<persistable path="/DiscoveryTemplate/cmsis_lib/include/stm32f4xx_gpio.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="DiscoveryTemplate/FreeRTOSConfig.h">
+<persistable path="/DiscoveryTemplate/FreeRTOSConfig.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_freertos.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_freertos.c">
+<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_freertos.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rng.h" tooltip="DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h">
 <persistable path="/DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tasks.c" tooltip="DiscoveryTemplate/FreeRTOS/Source/tasks.c">
-<persistable path="/DiscoveryTemplate/FreeRTOS/Source/tasks.c"/>
 </file>
 </mruList>
 </workbench>

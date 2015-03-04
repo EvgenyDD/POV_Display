@@ -91,7 +91,7 @@ void DisplayTextAdd(uint16_t channel, char *pNewTextDisp, const char *font, uint
 *******************************************************************************/
 void DisplayTextModifyPos(uint16_t channel, uint8_t color, uint8_t angle, uint8_t raduis)
 {
-	if(angle != 255) Text[channel].angle = angle%200;
+	if(angle != 255) Text[channel].angle = angle%200; //255 means that angle wouldn't be changed
 	if(raduis < 40)	Text[channel].radius = raduis/*%32*/;
 	Text[channel].color = color;
 

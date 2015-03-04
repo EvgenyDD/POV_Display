@@ -760,29 +760,29 @@ void SendSett()
 	case 193://#>Menu>Tone->Click
 		SettingsToBkp(1);
 		FMSendData(sett.toneClick, 16);
-		SoundPlayNote(0, WAVE_NULL, 100);
-		SoundPlayNote(sett.toneClick, WAVE_SIN, 100);
+		SoundPlayNote(0, WAVE_NULL, 100, 2);
+		SoundPlayNote(sett.toneClick, WAVE_SIN, 100, 2);
 		break;
 
 	case 194://#>Menu>Tone->Metr1
 		SettingsToBkp(0);
 		FMSendData(sett.toneM1, 16);
-		SoundPlayNote(0, WAVE_NULL, 100);
-		SoundPlayNote(sett.toneM1, WAVE_SIN, 100);
+		SoundPlayNote(0, WAVE_NULL, 100, 2);
+		SoundPlayNote(sett.toneM1, WAVE_SIN, 100, 2);
 		break;
 
 	case 195://#>Menu>Tone->Metr2
 		SettingsToBkp(0);
 		FMSendData(sett.toneM2, 16);
-		SoundPlayNote(0, WAVE_NULL, 100);
-		SoundPlayNote(sett.toneM2, WAVE_SIN, 100);
+		SoundPlayNote(0, WAVE_NULL, 100, 2);
+		SoundPlayNote(sett.toneM2, WAVE_SIN, 100, 2);
 		break;
 
 	case 196://#>Menu>Tone->HrStrk
 		SettingsToBkp(0);
 		FMSendData(sett.toneHrStrk, 16);
-		SoundPlayNote(0, WAVE_NULL, 100);
-		SoundPlayNote(sett.toneHrStrk, WAVE_SIN, 100);
+		SoundPlayNote(0, WAVE_NULL, 100, 2);
+		SoundPlayNote(sett.toneHrStrk, WAVE_SIN, 100, 2);
 		break;
 
 
@@ -949,13 +949,14 @@ void MetronomeSound()
 
 	/* 4 Strike */
 	static uint8_t var4 = 3;
-	SoundSetVolume(!sett.volMetr?1:sett.volMetr); //metronome with no sound doesn't make sense
 
 	if(++var4 >= 4 && sett.metr4Strk)
 	{
 		var4 = 0;
-		SoundPlayNote(sett.toneM2, WAVE_TRIANGLE, 100);
+		//metronome with no sound doesn't make sense
+		SoundPlayNote(sett.toneM2, WAVE_TRIANGLE, 100, !sett.volMetr?1:sett.volMetr);
 	}
 	else
-		SoundPlayNote(sett.toneM1, WAVE_TRIANGLE, 100);
+		//metronome with no sound doesn't make sense
+		SoundPlayNote(sett.toneM1, WAVE_TRIANGLE, 100, !sett.volMetr?1:sett.volMetr);
 }

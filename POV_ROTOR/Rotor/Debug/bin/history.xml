@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=Rotor.map -O1 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Rotor -TC:\CooCox\CoIDE\configuration\ProgramData\Rotor/arm-gcc-link.ld -g -L..\..\.. -lm">
-      <target file="Rotor.elf" lastModified="14bbfcdff4d">
+      <target file="Rotor.elf" lastModified="14bcb061390">
          <source file="..\obj\stm32f10x_rtc.o" lastModified="14bbc6f9617"/>
          <source file="..\obj\string.o" lastModified="14bbc6f96ea"/>
          <source file="..\obj\stm32f10x_tim.o" lastModified="14bbc6f98ae"/>
-         <source file="..\obj\UI.o" lastModified="14bbfcdfc74"/>
+         <source file="..\obj\UI.o" lastModified="14bcb060e86"/>
          <source file="..\obj\system_stm32f10x.o" lastModified="14bbc6f9a95"/>
          <source file="..\obj\startup_stm32f10x_md.o" lastModified="14bbc6f9b25"/>
          <source file="..\obj\stm32f10x_pwr.o" lastModified="14bbc6f9bdb"/>
@@ -16,7 +16,7 @@
          <source file="..\obj\stm32f10x_rcc.o" lastModified="14bbc6fa026"/>
          <source file="..\obj\stm32f10x_exti.o" lastModified="14bbc6fa0e4"/>
          <source file="..\obj\stm32f10x_adc.o" lastModified="14bbc6fa1e4"/>
-         <source file="..\obj\draw.o" lastModified="14bbfbcb3ae"/>
+         <source file="..\obj\draw.o" lastModified="14bc7133612"/>
          <source file="..\obj\stm32f10x_usart.o" lastModified="14bbc6fa3e1"/>
          <source file="..\obj\stm32f10x_flash.o" lastModified="14bbc6fa4f1"/>
          <source file="..\obj\display_HAL.o" lastModified="14bbfbcb4b5"/>

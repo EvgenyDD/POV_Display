@@ -108,7 +108,7 @@
          <include file="..\..\..\stm_lib\inc\stm32f10x_rtc.h"/>
          <include file="..\..\..\inc\UI.h"/>
       </source>
-      <source file="..\..\..\src\UI.c" lastModified="14bbfcdf465">
+      <source file="..\..\..\src\UI.c" lastModified="14bcb0606f3">
          <include file="..\..\..\inc\UI.h"/>
          <include file="..\..\..\inc\draw.h"/>
          <include file="..\..\..\inc\timework.h"/>
@@ -151,14 +151,10 @@
       <source file="..\..\..\inc\TxRx.h" lastModified="14baa4f1b30">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
-      <source file="..\..\..\src\draw.c" lastModified="14bbfbcab20">
+      <source file="..\..\..\src\draw.c" lastModified="14bc71328af">
          <include file="..\..\..\inc\draw.h"/>
          <include file="..\..\..\inc\string.h"/>
          <include file="..\..\..\inc\display_HAL.h"/>
-      </source>
-      <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14baa4f1b30">
-         <include file="..\..\..\stm_lib\inc\stm32f10x_adc.h"/>
-         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
       </source>
       <source file="..\..\..\src\display_HAL.c" lastModified="14bbfbcab89">
          <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
@@ -168,6 +164,10 @@
          <include file="..\..\..\inc\display_HAL.h"/>
          <include file="..\..\..\inc\draw.h"/>
       </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14baa4f1b30">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_adc.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
       <source file="..\..\..\src\timework.c" lastModified="14baa4f1b30">
          <include file="..\..\..\inc\timework.h"/>
       </source>
@@ -175,19 +175,19 @@
          <include file="..\..\..\stm_lib\inc\stm32f10x_dma.h"/>
          <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
       </source>
-      <source file="..\..\..\stm_lib\inc\stm32f10x_exti.h" lastModified="14baa4f1b30">
-         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
-      </source>
       <source file="..\..\..\stm_lib\inc\stm32f10x_iwdg.h" lastModified="14baa4f1b30">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
-      <source file="..\..\..\stm_lib\inc\stm32f10x_tim.h" lastModified="14baa4f1b30">
+      <source file="..\..\..\stm_lib\inc\stm32f10x_exti.h" lastModified="14baa4f1b30">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\inc\draw.h" lastModified="14baa4f1b30">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
       <source file="..\..\..\stm_lib\inc\stm32f10x_gpio.h" lastModified="14baa4f1b30">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
-      <source file="..\..\..\inc\draw.h" lastModified="14baa4f1b30">
+      <source file="..\..\..\stm_lib\inc\stm32f10x_tim.h" lastModified="14baa4f1b30">
          <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
       </source>
       <source file="..\..\..\inc\display_HAL.h" lastModified="14baa4f1b30">

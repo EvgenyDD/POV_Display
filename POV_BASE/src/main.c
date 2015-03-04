@@ -101,6 +101,8 @@ extern volatile uint16_t soundTimer;
 extern volatile uint16_t metrCounter;
 extern volatile bool metrFlag;
 
+extern uint8_t currMenuID;
+
 /* Private function prototypes -----------------------------------------------*/
 void Debug_OutSysTimeDate();
 
@@ -332,6 +334,11 @@ int main(void)
 	RC5Init();
 
 	SoundInit();
+
+	DebugSendString("$ System Started!");
+	Debug_OutSysTimeDate();
+
+
 	UIInit();
 
 #if 0
@@ -359,8 +366,7 @@ int main(void)
 	RTC_SetDate(RTC_Format_BIN, &RTC_DateStructure);
 #endif
 
-	DebugSendString("$ System Started!");
-	Debug_OutSysTimeDate();
+
 
 	//SoundPlayNote(25, WAVE_SIN, 200); //startup sound
 
@@ -402,25 +408,9 @@ int main(void)
 			/* read current time and date */
     		GetTimeDate(&TimeTemp, &DateTemp);
 
-    		/* Make sound at the start of each hour */
-    		if(TimeTemp.RTC_Hours==0 && TimeTemp.RTC_Minutes==0 && TimeTemp.RTC_Seconds==0)
-    		{
-    			SoundSetVolume(sett.volHrStrk);
-    			SoundPlayNote(sett.toneHrStrk, WAVE_SIN, 800);
-    		}
-
     		/* Auto power ON/OFF */
-    		if(sett.WorkOnOff)
-    		{
-				/* Power OFF clock if night come */
-				if(TimeTemp.RTC_Hours==sett.OffTime && TimeTemp.RTC_Minutes==0 && TimeTemp.RTC_Seconds<5 && PowerFlag)
-				{
-					DebugSendString(" $ Sleep Time!");
-					PowerFlag = FALSE;
-					FMOff();
-					MotorSpeedSet(0);
-				}
-
+			if(sett.WorkOnOff)
+			{
 				/* Power ON clock if morning come */
 				if(TimeTemp.RTC_Hours==sett.OnTime && TimeTemp.RTC_Minutes==0 && TimeTemp.RTC_Seconds<5 && !PowerFlag)
 				{
@@ -435,9 +425,33 @@ int main(void)
 						FMSendData(RTC_TimeDateToCnt(&RTC_TD_Temp), 32);
 
 						SendSettArray();
+						FMSendData(currMenuID, 8);
 
 					noRotationCounter = NO_ROTATION_PERIOD;
 					spinTimer = 0;
+				}
+			}
+
+    		/* Make sound at the start of each hour */
+			if(TimeTemp.RTC_Minutes==0 && TimeTemp.RTC_Seconds==0 && PowerFlag)
+			{
+				SoundPlayNote(sett.toneHrStrk, WAVE_TRIANGLE, 500, sett.volHrStrk);
+
+				GetTimeDate(&TimeTemp, &DateTemp);
+				TimeDateToStruct(&TimeTemp, &DateTemp, &RTC_TD_Temp);
+				FMSendData(RTC_TimeDateToCnt(&RTC_TD_Temp), 32);
+			}
+
+    		/* Auto power ON/OFF */
+    		if(sett.WorkOnOff)
+    		{
+				/* Power OFF clock if night come */
+				if(TimeTemp.RTC_Hours==sett.OffTime && TimeTemp.RTC_Minutes==0 && TimeTemp.RTC_Seconds<5 && PowerFlag)
+				{
+					DebugSendString(" $ Sleep Time!");
+					PowerFlag = FALSE;
+					FMOff();
+					MotorSpeedSet(0);
 				}
     		}
 
@@ -450,7 +464,7 @@ int main(void)
     		/* send debug message every second */
     		//DebugSendNumWDesc("spin:", currentSpinFreq);
     		//DebugSendNumWDesc("spd:", MotorGetSpeed());
-    		DebugSendChar('\n');
+    		//DebugSendChar('\n');
     		Debug_OutSysTimeDate();
 #endif
     	}
@@ -474,9 +488,7 @@ int main(void)
 				//if(RC5_Frame.Address < 2)
 				{
 					/* make sound if button is pressed */
-					SoundSetVolume(sett.volClick);
-					SoundPlayNote(sett.toneClick, WAVE_SIN, 100);
-
+					SoundPlayNote(sett.toneClick, WAVE_SIN, 100, sett.volClick);
 					DebugSendChar('\n');DebugSendChar('*'); //button is pressed
 
 					switch(RC5_Frame.Command)
@@ -509,6 +521,7 @@ int main(void)
 								FMSendData(RTC_TimeDateToCnt(&RTC_TD_Temp), 32);
 
 								SendSettArray();
+								FMSendData(currMenuID, 8);
 
 							noRotationCounter = NO_ROTATION_PERIOD;
 							spinTimer = 0;
@@ -553,8 +566,7 @@ int main(void)
 
 					default:
 						DebugSendNumWDesc("->FAIL RC5 command: ", RC5_Frame.Command);
-						SoundSetVolume(sett.volClick);
-						SoundPlayNote(12*3+E, WAVE_SIN, 20);
+						SoundPlayNote(12*3+E, WAVE_SIN, 40, sett.volClick);
 					}
 				}
 			}
@@ -572,12 +584,11 @@ int main(void)
 			MotorSpeedSet(0);
 
 			/* triple peak*/
-			SoundSetVolume(!sett.volClick?2:sett.volClick);
-			SoundPlayNote(Gd+12*2, WAVE_SAW, 150);
-				SoundPlayNote(Gd+12*2, WAVE_NULL, 150);
-			SoundPlayNote(Gd+12*2, WAVE_SAW, 150);
-				SoundPlayNote(Gd+12*2, WAVE_NULL, 150);
-			SoundPlayNote(Gd+12*2, WAVE_SAW, 150);
+			SoundPlayNote(Gd+12*2, WAVE_SAW, 150, !sett.volClick?2:sett.volClick);
+				SoundPlayNote(Gd+12*2, WAVE_NULL, 150, !sett.volClick?2:sett.volClick);
+			SoundPlayNote(Gd+12*2, WAVE_SAW, 150, !sett.volClick?2:sett.volClick);
+				SoundPlayNote(Gd+12*2, WAVE_NULL, 150, !sett.volClick?2:sett.volClick);
+			SoundPlayNote(Gd+12*2, WAVE_SAW, 150, !sett.volClick?2:sett.volClick);
 		}
 
 		//Rotor data IR receiver__

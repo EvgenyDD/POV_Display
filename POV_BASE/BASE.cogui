@@ -3,8 +3,8 @@
 <workbenchAdvisor/>
 <window>
 <fastViewData fastViewLocation="1024">
-<orientation position="512" view="org.eclipse.search.ui.views.SearchView"/>
 <orientation position="512" view="org.coocox.codebugger.trace.ui.traceview"/>
+<orientation position="512" view="org.eclipse.search.ui.views.SearchView"/>
 <orientation position="512" view="org.eclipse.debug.ui.VariableView"/>
 </fastViewData>
 <perspectiveBar/>
@@ -22,36 +22,29 @@
 <part id="5"/>
 <part id="6"/>
 <part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.coocox.welcome.ui.WelcomePage" name="" partName="welcome" title="welcome" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
-</input>
-</editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/main.c" title="main.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1305" selectionTopPixel="315"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13621" selectionTopPixel="6196"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" partName="UI.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/UI.c" title="UI.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/UI.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" partName="UI.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/UI.c" title="UI.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/UI.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/UI.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1304" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="18707" selectionTopPixel="3492"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="UI.h" partName="UI.h" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/UI.h" title="UI.h" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/UI.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/inc/UI.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="97" selectionOffset="1354" selectionTopPixel="810"/>
+<editorState selectionHorizontalPixel="0" selectionLength="97" selectionOffset="1354" selectionTopPixel="315"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="sound.c" partName="sound.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/sound.c" title="sound.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/sound.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/sound.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1305" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="8984" selectionTopPixel="2341"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="FM.c" partName="FM.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/FM.c" title="FM.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/FM.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/FM.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1218" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1467" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="RC5.h" partName="RC5.h" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/RC5.h" title="RC5.h" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/RC5.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/inc/RC5.h"/>
@@ -61,17 +54,9 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/RC5.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timework.c" partName="timework.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/timework.c" title="timework.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/timework.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/timework.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" partName="motor.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/motor.c" title="motor.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/motor.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/motor.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1303" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" partName="debug.c" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/debug.c" title="debug.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/src/debug.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/src/debug.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="sound.h" partName="sound.h" path="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/sound.h" title="sound.h" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_BASE/inc/sound.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BASE/inc/sound.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="896" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -147,7 +132,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.coocox.builder.ui.exampleView" ratio="0.2885609" ratioLeft="391" ratioRight="964" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1b4fe4d"/>
+<info part="org.coocox.builder.ui.exampleView" ratio="0.35498154" ratioLeft="481" ratioRight="874" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1b4fe4d"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@97ed28" ratio="0.8189771" ratioLeft="1217" ratioRight="269" relationship="2" relative="org.coocox.builder.ui.exampleView">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
@@ -159,7 +144,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.44915253" ratioLeft="424" ratioRight="520" relationship="4" relative="org.coocox.builder.ui.exampleView"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@170139f" ratio="0.5" ratioLeft="658" ratioRight="658" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@170139f" ratio="0.55453503" ratioLeft="483" ratioRight="388" relationship="2" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
@@ -278,171 +263,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/UI.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/sound.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/UI.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/inc/UI.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/string.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/timework.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/sound.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/debug.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/motor.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/inc/motor.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/FM.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/RC5.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/inc/RC5.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/inc/UI.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/UI.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BASE/src/UI.c"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2992" y="0"/>
+<item historyLabel="sound.c" index="2">
+<position info="not_deleted" x="7248" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3014" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="11487" y="0"/>
 </item>
 <item historyLabel="sound.c" index="2">
-<position info="not_deleted" x="6175" y="0"/>
+<position info="not_deleted" x="2538" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3043" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="11487" y="0"/>
 </item>
-<item historyLabel="sound.c" index="2">
-<position info="not_deleted" x="2156" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3043" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3078" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3154" y="0"/>
-</item>
-<item historyLabel="UI.c" index="1">
-<position info="not_deleted" x="6263" y="8"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="15641" y="0"/>
-</item>
-<item historyLabel="sound.c" index="2">
-<position info="not_deleted" x="7153" y="13"/>
-</item>
-<item historyLabel="sound.c" index="2">
-<position info="not_deleted" x="7277" y="0"/>
-</item>
-<item historyLabel="sound.c" index="2">
-<position info="not_deleted" x="1556" y="8"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11439" y="0"/>
-</item>
-<item historyLabel="UI.c" index="1">
-<position info="not_deleted" x="6263" y="8"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="11491" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="11520" y="0"/>
-</item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="10989" y="93"/>
-</item>
-<item historyLabel="UI.c" index="4">
-<position info="not_deleted" x="7568" y="8"/>
-</item>
-<item historyLabel="UI.h" index="5">
+<item historyLabel="UI.h" index="3">
 <position info="not_deleted" x="1354" y="97"/>
 </item>
-<item historyLabel="string.c" index="6">
-<position info="not_deleted" x="2374" y="0"/>
+<item historyLabel="sound.c" index="2">
+<position info="not_deleted" x="3348" y="0"/>
 </item>
-<item historyLabel="UI.h" index="5">
-<position info="not_deleted" x="1354" y="97"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="11487" y="0"/>
 </item>
-<item historyLabel="timework.c" index="7">
-<position info="not_deleted" x="5093" y="0"/>
+<item historyLabel="UI.c" index="0">
+<position info="not_deleted" x="26003" y="0"/>
 </item>
-<item historyLabel="UI.h" index="5">
-<position info="not_deleted" x="1354" y="97"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="11487" y="0"/>
 </item>
-<item historyLabel="sound.c" index="8">
-<position info="not_deleted" x="2883" y="8"/>
+<item historyLabel="UI.c" index="0">
+<position info="not_deleted" x="25930" y="0"/>
 </item>
-<item historyLabel="debug.c" index="9">
-<position info="not_deleted" x="2302" y="0"/>
+<item historyLabel="sound.c" index="2">
+<position info="not_deleted" x="8084" y="13"/>
 </item>
-<item historyLabel="sound.c" index="8">
-<position info="not_deleted" x="9234" y="0"/>
+<item historyLabel="UI.c" index="0">
+<position info="not_deleted" x="22484" y="0"/>
 </item>
-<item historyLabel="motor.c" index="10">
-<position info="not_deleted" x="3052" y="0"/>
+<item historyLabel="main.c" index="1">
+<position info="not_deleted" x="11487" y="0"/>
 </item>
-<item historyLabel="sound.c" index="8">
-<position info="not_deleted" x="9234" y="0"/>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="8084" y="13"/>
 </item>
-<item historyLabel="motor.h" index="11">
-<position info="not_deleted" x="587" y="0"/>
-</item>
-<item historyLabel="sound.c" index="8">
-<position info="not_deleted" x="9234" y="0"/>
-</item>
-<item historyLabel="FM.c" index="12">
-<position info="not_deleted" x="5415" y="0"/>
-</item>
-<item historyLabel="RC5.c" index="13">
+<item historyLabel="sound.c" index="4">
 <position/>
 </item>
-<item historyLabel="FM.c" index="12">
-<position info="not_deleted" x="5415" y="0"/>
-</item>
-<item historyLabel="RC5.c" index="13">
-<position info="not_deleted" x="857" y="0"/>
-</item>
-<item historyLabel="RC5.h" index="14">
-<position info="not_deleted" x="965" y="0"/>
-</item>
-<item historyLabel="RC5.c" index="13">
-<position info="not_deleted" x="857" y="0"/>
-</item>
-<item historyLabel="FM.c" index="12">
-<position info="not_deleted" x="1305" y="0"/>
-</item>
-<item historyLabel="RC5.h" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FM.c" index="12">
+<item historyLabel="main.c" index="5">
 <position/>
 </item>
-<item historyLabel="RC5.h" index="14">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="FM.c" index="6">
+<position info="not_deleted" x="1467" y="0"/>
 </item>
-<item historyLabel="FM.c" index="12">
-<position info="not_deleted" x="0" y="1303"/>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="8984" y="0"/>
 </item>
-<item historyLabel="RC5.c" index="13">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="UI.h" index="7">
+<position info="not_deleted" x="1354" y="97"/>
 </item>
-<item historyLabel="sound.c" index="8">
-<position info="not_deleted" x="1305" y="0"/>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="22326" y="0"/>
 </item>
-<item historyLabel="timework.c" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="UI.h" index="7">
+<position info="not_deleted" x="1354" y="97"/>
 </item>
-<item historyLabel="UI.c" index="4">
-<position info="not_deleted" x="1304" y="0"/>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="22326" y="0"/>
 </item>
-<item historyLabel="motor.c" index="10">
-<position info="not_deleted" x="1303" y="0"/>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="15237" y="0"/>
 </item>
-<item historyLabel="main.c" index="3">
-<position info="not_deleted" x="1305" y="0"/>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="21069" y="0"/>
 </item>
-<item historyLabel="FM.c" index="12">
-<position info="not_deleted" x="0" y="1303"/>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="15237" y="0"/>
 </item>
-<item active="true" historyLabel="debug.c" index="9">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="18707" y="14"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="11534" y="0"/>
+</item>
+<item historyLabel="UI.h" index="7">
+<position info="not_deleted" x="1354" y="97"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="8082" y="13"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="7126" y="8"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="7306" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position/>
+</item>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="18707" y="14"/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="7307" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="11489" y="0"/>
+</item>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="18707" y="14"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="12578" y="0"/>
+</item>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="18707" y="14"/>
+</item>
+<item historyLabel="UI.h" index="7">
+<position info="not_deleted" x="1354" y="97"/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="8984" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="13002" y="0"/>
+</item>
+<item historyLabel="UI.c" index="8">
+<position info="not_deleted" x="18707" y="14"/>
+</item>
+<item historyLabel="UI.h" index="7">
+<position info="not_deleted" x="1354" y="97"/>
+</item>
+<item historyLabel="sound.c" index="4">
+<position info="not_deleted" x="8984" y="0"/>
+</item>
+<item historyLabel="main.c" index="5">
+<position info="not_deleted" x="13002" y="0"/>
+</item>
+<item active="true" historyLabel="UI.c" index="9">
+<position info="not_deleted" x="18707" y="14"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -451,23 +431,29 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="BASE/src/debug.c">
-<persistable path="/BASE/src/debug.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sound.h" tooltip="BASE/inc/sound.h">
+<persistable path="/BASE/inc/sound.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="motor.c" tooltip="BASE/src/motor.c">
-<persistable path="/BASE/src/motor.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timework.c" tooltip="BASE/src/timework.c">
-<persistable path="/BASE/src/timework.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="RC5.c" tooltip="BASE/src/RC5.c">
-<persistable path="/BASE/src/RC5.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="RC5.h" tooltip="BASE/inc/RC5.h">
-<persistable path="/BASE/inc/RC5.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="draw.c" tooltip="Rotor/src/draw.c">
+<persistable path="/Rotor/src/draw.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" tooltip="Rotor/src/UI.c">
 <persistable path="/Rotor/src/UI.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="Rotor/src/main.c">
+<persistable path="/Rotor/src/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="Rotor/src/debug.c">
+<persistable path="/Rotor/src/debug.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timework.c" tooltip="Rotor/src/timework.c">
+<persistable path="/Rotor/src/timework.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.c" tooltip="Rotor/src/string.c">
+<persistable path="/Rotor/src/string.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display_HAL.c" tooltip="Rotor/src/display_HAL.c">
+<persistable path="/Rotor/src/display_HAL.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="touch.c" tooltip="DiscoveryTemplate/src/FAST_ILI9328/touch.c">
 <persistable path="/DiscoveryTemplate/src/FAST_ILI9328/touch.c"/>
@@ -490,12 +476,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_gpio.h" tooltip="DiscoveryTemplate/cmsis_lib/include/stm32f4xx_gpio.h">
 <persistable path="/DiscoveryTemplate/cmsis_lib/include/stm32f4xx_gpio.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rng.h" tooltip="DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h">
-<persistable path="/DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tasks.c" tooltip="DiscoveryTemplate/FreeRTOS/Source/tasks.c">
-<persistable path="/DiscoveryTemplate/FreeRTOS/Source/tasks.c"/>
 </file>
 </mruList>
 </workbench>

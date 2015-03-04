@@ -53,7 +53,7 @@ const uint16_t Sine12bit[32] = {
 	 599,  909, 1263, 1647
 };
 
-const uint16_t Meandr12bit[32] = {
+/*const uint16_t Meandr12bit[32] = {
 	4095, 4095, 4095, 4095,
 	4095, 4095, 4095, 4095,
 	4095, 4095, 4095, 4095,
@@ -62,9 +62,9 @@ const uint16_t Meandr12bit[32] = {
 	   0,    0,    0,    0,
 	   0,    0,    0,    0,
 	   0,    0,    0,    0
-};
+};*/
 
-const uint16_t Saw12bit[32] = {
+/*const uint16_t Saw12bit[32] = {
 	   0,  132,  264,  396,
 	 528,  660,  792,  924,
 	1056, 1188, 1320, 1452,
@@ -73,9 +73,9 @@ const uint16_t Saw12bit[32] = {
 	2641, 2773, 2905, 3037,
 	3169, 3301, 3433, 3565,
 	3697, 3829, 3961, 4095
-};
+};*/
 
-const uint16_t Triangle12bit[32] = {
+/*const uint16_t Triangle12bit[32] = {
 	   0, 264,  528,   792,
 	1056, 1320, 1584, 1848,
 	2112, 2377, 2641, 2905,
@@ -84,7 +84,7 @@ const uint16_t Triangle12bit[32] = {
 	2909, 2645, 2381, 2117,
 	1853, 1589, 1324, 1060,
 	 796,  532,  268,    4
-};
+};*/
 
 /* Note frequencies (in Hz)
  * from C - low octave
@@ -102,9 +102,11 @@ const uint16_t NoteMass[12*5] =
 
 
 /* Private macro -------------------------------------------------------------*/
+#define abs(x)  ( (x)<0 ) ? (-(x)) : (x)
+
+
 /* Private variables ---------------------------------------------------------*/
 uint16_t DAC12bit[32] = {0}; //current DAC massive
-uint8_t currentWave = 0;
 uint8_t currentVolume = 1;
 
 volatile uint16_t soundTimer = 0;
@@ -187,49 +189,25 @@ void SoundInit()
 * Function Name  : SoundSetWave
 * Description    : Set wave type for DAC + set volume
 *******************************************************************************/
-void SoundSetWave(uint8_t wave)
+void SoundSetWave(uint8_t wave, uint8_t volume)
 {
-	if(currentWave == wave) return; //return if no change
-	else
+	switch(wave)
 	{
-		currentWave = wave;
-
-		switch(currentWave)
-		{
-		case WAVE_NULL:
-			for(uint8_t i=0; i<32; i++) DAC12bit[i] = 0;
-			break;
-		case WAVE_SIN:
-			for(uint8_t i=0; i<32; i++) DAC12bit[i] = Sine12bit[i]/currentVolume;
-			break;
-		case WAVE_MEANDR:
-			for(uint8_t i=0; i<32; i++) DAC12bit[i] = Meandr12bit[i]/currentVolume;
-			break;
-		case WAVE_SAW:
-			for(uint8_t i=0; i<32; i++) DAC12bit[i] = Saw12bit[i]/currentVolume;
-			break;
-		case WAVE_TRIANGLE:
-			for(uint8_t i=0; i<32; i++) DAC12bit[i] = Triangle12bit[i]/currentVolume;
-			break;
-		}
-	}
-}
-
-
-/*******************************************************************************
-* Function Name  : SoundSetVolume
-* Description    : Set volume
-*******************************************************************************/
-void SoundSetVolume(uint8_t volume)
-{
-	//volume - 7 = max sound
-	//volume - 0 = min sound = silent
-
-	//if(currentVolume == ((volume==0)?255:8-volume)) return; //return if no change
-	//else
-	{
-		currentVolume = (volume==0)?255:8-volume;
-		//SoundSetWave(currentWave);
+	case WAVE_NULL:
+		for(uint8_t i=0; i<32; i++) DAC12bit[i] = 0;
+		break;
+	case WAVE_SIN:
+		for(uint8_t i=0; i<32; i++) DAC12bit[i] = Sine12bit[i]/volume;
+		break;
+	case WAVE_MEANDR:
+		for(uint8_t i=0; i<32; i++) DAC12bit[i] = (i<16?4095:0)/volume;//Meandr12bit[i]/volume;
+		break;
+	case WAVE_SAW:
+		for(uint8_t i=0; i<32; i++) DAC12bit[i] = (i<<7)/volume;//Saw12bit[i]/volume;
+		break;
+	case WAVE_TRIANGLE:
+		for(uint8_t i=0; i<32; i++) DAC12bit[i] = ((abs(i-16))*256)/volume;//Triangle12bit[i]/volume;
+		break;
 	}
 }
 
@@ -256,13 +234,16 @@ void SoundSetFreq(uint16_t freq)
 * Function Name  : SoundPlayNote
 * Description    : Add note to circular buffer
 *******************************************************************************/
-int SoundPlayNote(uint16_t note, uint8_t wave, uint16_t noteLen)
+int SoundPlayNote(uint16_t note, uint8_t wave, uint16_t noteLen, uint8_t volume)
 {
 	assert_param(note <= 12*5);
 
 	SoundCB[cbEnd].noteFreq = NoteMass[note];
 	SoundCB[cbEnd].noteLen = noteLen;
 	SoundCB[cbEnd].wave = wave;
+	//volume - 7 = max sound
+	//volume - 0 = min sound = silent
+	SoundCB[cbEnd].volume = (volume==0)?255:8-volume;
 	noteState = TRUE;
 
 	if(++cbEnd == BUF_SIZE) cbEnd = 0;
@@ -280,7 +261,8 @@ void SoundDispatcher()
 	{
 		if(cbStart != cbEnd)
 		{ //take new note from buffer
-			SoundSetWave(SoundCB[cbStart].wave);
+
+			SoundSetWave(SoundCB[cbStart].wave, SoundCB[cbStart].volume);
 			SoundSetFreq(SoundCB[cbStart].noteFreq);
 			soundTimer = SoundCB[cbStart].noteLen;
 
@@ -290,7 +272,7 @@ void SoundDispatcher()
 		else
 		{ //stop sound playing = no new data in buffer
 			noteState = FALSE;
-			SoundSetWave(WAVE_NULL);
+			SoundSetWave(WAVE_NULL, 1);
 		}
 	}
 }

@@ -10,8 +10,8 @@
       <target file="TxRx.o" lastModified="14bbfbcb5c5">
          <source file="..\..\..\src\TxRx.c" lastModified="14bbfbcaafc"/>
       </target>
-      <target file="draw.o" lastModified="14bbfbcb3ae">
-         <source file="..\..\..\src\draw.c" lastModified="14bbfbcab20"/>
+      <target file="draw.o" lastModified="14bc7133612">
+         <source file="..\..\..\src\draw.c" lastModified="14bc71328af"/>
       </target>
       <target file="stm32f10x_rcc.o" lastModified="14bbc6fa026">
          <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="14baa4f1b30"/>
@@ -19,8 +19,8 @@
       <target file="stm32f10x_pwr.o" lastModified="14bbc6f9bdb">
          <source file="..\..\..\stm_lib\src\stm32f10x_pwr.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="UI.o" lastModified="14bbfcdfc74">
-         <source file="..\..\..\src\UI.c" lastModified="14bbfcdf465"/>
+      <target file="UI.o" lastModified="14bcb060e86">
+         <source file="..\..\..\src\UI.c" lastModified="14bcb0606f3"/>
       </target>
       <target file="misc.o" lastModified="14bbc6fa8db">
          <source file="..\..\..\stm_lib\src\misc.c" lastModified="14baa4f1b30"/>
@@ -55,11 +55,11 @@
       <target file="font.o" lastModified="14bbc6f9f3f">
          <source file="..\..\..\src\font.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="stm32f10x_adc.o" lastModified="14bbc6fa1e4">
-         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14baa4f1b30"/>
-      </target>
       <target file="stm32f10x_tim.o" lastModified="14bbc6f98ae">
          <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="14baa4f1b30"/>
+      </target>
+      <target file="stm32f10x_adc.o" lastModified="14bbc6fa1e4">
+         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14baa4f1b30"/>
       </target>
       <target file="stm32f10x_dma.o" lastModified="14bbc6fa820">
          <source file="..\..\..\stm_lib\src\stm32f10x_dma.c" lastModified="14baa4f1b30"/>
@@ -67,11 +67,11 @@
       <target file="timework.o" lastModified="14bbc6f9cab">
          <source file="..\..\..\src\timework.c" lastModified="14baa4f1b30"/>
       </target>
-      <target file="main.o" lastModified="14bbfca5495">
-         <source file="..\..\..\src\main.c" lastModified="14bbfbf30dc"/>
-      </target>
       <target file="stm32f10x_usart.o" lastModified="14bbc6fa3e1">
          <source file="..\..\..\stm_lib\src\stm32f10x_usart.c" lastModified="14baa4f1b30"/>
+      </target>
+      <target file="main.o" lastModified="14bbfca5495">
+         <source file="..\..\..\src\main.c" lastModified="14bbfbf30dc"/>
       </target>
    </processor>
 </history>
