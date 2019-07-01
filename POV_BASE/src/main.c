@@ -150,14 +150,14 @@ void Init()
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOB, ENABLE);
 
 //RCC
-	RCC_HSICmd(ENABLE);
-	while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
-	RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
-
-	// Init PLL (8MHZ/2)*12 = 48MHZ
-	RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_12);
-	RCC_PLLCmd(ENABLE);
-	while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET);
+//	RCC_HSICmd(ENABLE);
+//	while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
+//	RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
+//
+//	// Init PLL (8MHZ/2)*12 = 48MHZ
+//	RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_12);
+//	RCC_PLLCmd(ENABLE);
+//	while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET);
 
 	RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
 	RCC_HCLKConfig(RCC_SYSCLK_Div1);
@@ -354,19 +354,38 @@ int main(void)
 	RTC_DateTypeDef RTC_DateStructure;
 
 	RTC_TimeStructure.RTC_H12 = RTC_H12_AM;
-	RTC_TimeStructure.RTC_Hours = 12;
-	RTC_TimeStructure.RTC_Minutes = 05;
+	RTC_TimeStructure.RTC_Hours = 21;
+	RTC_TimeStructure.RTC_Minutes = 27;
 	RTC_TimeStructure.RTC_Seconds = 0;
 	RTC_SetTime(RTC_Format_BIN, &RTC_TimeStructure);
 
-	RTC_DateStructure.RTC_Date = 20;
-	RTC_DateStructure.RTC_Month = 12;
-	RTC_DateStructure.RTC_Year = 14;
+	RTC_DateStructure.RTC_Date = 31;
+	RTC_DateStructure.RTC_Month = 05;
+	RTC_DateStructure.RTC_Year = 19;
 	RTC_DateStructure.RTC_WeekDay = 5;
 	RTC_SetDate(RTC_Format_BIN, &RTC_DateStructure);
 #endif
 
 
+	{
+	PowerFlag = TRUE;
+	DebugSendString("+++ ROTOR ON");
+	FMSetFreq(FREQ20K, FREQ20K*2/9);
+	MotorSpeedSet(110);
+	//SoundSetVolume(sett.volClick);
+	//SoundPlayNote(G+12*1, WAVE_SAW, 200);SoundPlayNote(D+12*2, WAVE_SAW, 200);
+
+		delay_ms(200);
+		GetTimeDate(&TimeTemp, &DateTemp);
+		TimeDateToStruct(&TimeTemp, &DateTemp, &RTC_TD_Temp);
+		FMSendData(RTC_TimeDateToCnt(&RTC_TD_Temp), 32);
+
+		SendSettArray();
+		FMSendData(currMenuID, 8);
+
+	noRotationCounter = NO_ROTATION_PERIOD;
+	spinTimer = 0;
+	}
 
 	//SoundPlayNote(25, WAVE_SIN, 200); //startup sound
 
@@ -381,6 +400,12 @@ int main(void)
     	if(lastRTCReg != RTC->TR)
     	{
     		lastRTCReg = RTC->TR;
+
+    		static uint32_t cnt = 0;
+    		if(++cnt == 4)
+    		{
+    			magic();
+    		}
 
     		static uint32_t light = 0;
     		light += ((uint32_t)(AdcData[2]*125))>>9;  //[0;1000]

@@ -56,7 +56,7 @@
 Menu_Item*       CurrMenuItem;
 WriteFuncPtr*    WriteFunc;
 
-volatile uint8_t currModeNum = 0;//, lastModeNum = 0;
+volatile uint8_t currModeNum = 64;//, lastModeNum = 0;
 
 #ifdef LANG_EN
 /* Display screens */
@@ -371,7 +371,7 @@ void UI_NewMenuMode(uint8_t modeID)
 
 	transCounter = (inParamSet || wasInParamSet)?0:TRANS_DELAY;
 
-	currModeNum = modeID;
+//	currModeNum = modeID;
 
 	/* Find exact menu item which equal to ID Number */
 	for(uint8_t i=0; i < sizeof(pMenu)/4; i++)
@@ -503,11 +503,11 @@ void MakeSettFromNumber(uint8_t bkpNum, uint32_t bkpValue)
 		break;
 
 	case 2:
-		sett.colDate	= (bkpValue)				& BIT_MASK(3);
-		sett.colTime	= (bkpValue >> (3))			& BIT_MASK(3);
-		sett.colArrow	= (bkpValue >> (3+3))		& BIT_MASK(3);
-		sett.colHMrk	= (bkpValue >> (3+3+3))		& BIT_MASK(3);
-		sett.colPend	= (bkpValue >> (3+3+3+3))	& BIT_MASK(3);
+//		sett.colDate	= (bkpValue)				& BIT_MASK(3);
+//		sett.colTime	= (bkpValue >> (3))			& BIT_MASK(3);
+//		sett.colArrow	= (bkpValue >> (3+3))		& BIT_MASK(3);
+//		sett.colHMrk	= (bkpValue >> (3+3+3))		& BIT_MASK(3);
+//		sett.colPend	= (bkpValue >> (3+3+3+3))	& BIT_MASK(3);
 		break;
 
 	default:

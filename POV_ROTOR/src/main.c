@@ -86,7 +86,7 @@ volatile bool flagNewStep = FALSE;
 
 /* Extern variables ----------------------------------------------------------*/
 extern volatile uint8_t DispBuf[12];
-//extern SettingsArray sett;
+extern SettingsArray sett;
 
 extern TextDispStruct Text[30];
 extern ObjDispStruct Object[30];
@@ -159,6 +159,11 @@ void SysTick_Handler(void)
 *******************************************************************************/
 void Init()
 {
+	sett.colArrow = GREEN;
+	sett.colDate = CYAN;
+	sett.colHMrk = BLUE;
+	sett.colTime = YELLOW;
+//	GREEN, RED, BLUE, YELLOW, MAGENTA, CYAN, WHITE
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef TimeBaseInitStructure;
 	TIM_OCInitTypeDef TIM_OCInitStructure;

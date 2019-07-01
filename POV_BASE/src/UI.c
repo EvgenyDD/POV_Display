@@ -196,6 +196,11 @@ void UIInit()
 }
 
 
+void magic()
+{
+	MenuChange(NEXT);
+}
+
 /*******************************************************************************
 * Function Name  : UIDispatcher
 * Description    : Handle new button event

@@ -44,13 +44,13 @@
 #define   MIN_FULL_BIT_TIME_US       1340 /* Minimum Full bit time in 탎 */
 #define   MAX_FULL_BIT_TIME_US       2220 /* Maximum Full bit time in 탎 */
 #else
-#define   NOMINAL_HALF_BIT_TIME_US   680  /* Nominal half bit time in 탎 */
-#define   MIN_HALF_BIT_TIME_US       610  /* Minimum half bit time in 탎 */
-#define   MAX_HALF_BIT_TIME_US       1500 /* Maximum half bit time in 탎 */
+#define   NOMINAL_HALF_BIT_TIME_US   889  /* Nominal half bit time in 탎 */
+#define   MIN_HALF_BIT_TIME_US       640  /* Minimum half bit time in 탎 */
+#define   MAX_HALF_BIT_TIME_US       1140 /* Maximum half bit time in 탎 */
 
 #define   NOMINAL_FULL_BIT_TIME_US   1778 /* Nominal Full bit time in 탎 */
-#define   MIN_FULL_BIT_TIME_US       1550 /* Minimum Full bit time in 탎 */
-#define   MAX_FULL_BIT_TIME_US       2500 /* Maximum Full bit time in 탎 */
+#define   MIN_FULL_BIT_TIME_US       1340 /* Minimum Full bit time in 탎 */
+#define   MAX_FULL_BIT_TIME_US       2220 /* Maximum Full bit time in 탎 */
 #endif
 #define   RC5_TIM_PRESCALER          2
 
