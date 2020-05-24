@@ -100,3 +100,20 @@ void DebugSendNumWDesc(char *string, uint32_t Num)
 	strcat_(str, number);
 	DebugSendString(str);
 }
+
+/*******************************************************************************
+* Function Name  : DebugSendNumWDesc
+* Description    : Send text + number
+*******************************************************************************/
+void DebugSendNum2WDesc(char *string, uint32_t Num, uint32_t Num2)
+{
+	char str[strlen(string)+20], number[25];
+	str[0]='\0';
+	strcat_(str, string);
+	itoa_(Num, number);
+	strcat_(str, number);
+	strcat_(str, " ");
+	itoa_(Num2, number);
+	strcat_(str, number);
+	DebugSendString(str);
+}

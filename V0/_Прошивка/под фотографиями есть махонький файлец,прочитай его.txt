@@ -1,0 +1,96 @@
+;***** VARIABLE DEFINITIONS
+
+#define	MotorCounterClockWise	; un-comment this line if motor is running counter clockwise;эта строка отвечает за направление движения пропеллера,раскоментированная-----означает что вращение идет против часовой стрелки.закоментированная ----по часовой.
+
+
+; #define 	ReversTextScroll	; un-comment this line if your text must scroll from left to right (e.g. Hebrew) эта строка отвечает за направление движения текста закоментированная----------слева направо!
+
+
+
+на видео хорошо видно действие первой строки.вторую строку я оставил без изменений.пуль и коды пультовых кнопок я переделал под себя,думаю с этим мало у кого возникли трудности.необходимо разве что исправить код пульта на нужный и назначить кнопки.в моем случае код пульта                   RemoteAddr	EQU	0x00
+
+убрал изменение настроек в сторону уменьшения,оставил только увеличение,для экономии кнопок,да и запутаться так можно.
+
+
+; Define RC5 address of Remote Control
+
+RemoteAddr	EQU	0x00
+
+; Definition of Keys and key-codes on my remote control
+
+NUM_0	EQU	0x00	;1-es gomb, mбsodperc 0-ra
+NUM_1	EQU	0x01	;2-es gomb
+NUM_2	EQU	0x02	;3-as gomb
+NUM_3	EQU	0x03	;4-es gomb
+NUM_4	EQU	0x04	;5-цs gomb
+NUM_5	EQU	0x05	;6-os gomb
+NUM_6	EQU	0x06	;7-es gomb
+NUM_7	EQU	0x07	;8-as gomb
+NUM_8	EQU	0x08	;9-es gomb
+NUM_9	EQU	0x09	;10-es gomb
+FREEZE	EQU	0x5D
+PAUSE	EQU	0x30
+STANDBY	EQU	0x0C	;11-es gomb, kikapcsolбs (kйszenlйt)
+MUTE	EQU	0x2D
+HELP	EQU	0x2F
+TEXT	EQU	0x21
+VOL_UP	EQU	0x07	;12-es gomb
+VOL_DN	EQU	0x11	;13-as gomb
+BRI_UP	EQU	0x10	;14-es gomb
+BRI_DN	EQU	0x3F	;15-цs gomb
+SAT_UP	EQU	0x38	;16-os gomb
+SAT_DN	EQU	0x15
+BAS_UP	EQU	0x16
+BAS_DN	EQU	0x17
+TRE_UP	EQU	0x18
+TRE_DN	EQU	0x19
+BAL_RI	EQU	0x1A
+BAL_LE	EQU	0x1B
+CON_UP	EQU	0x1C
+CON_DN	EQU	0x1E
+HUE_UP	EQU	0x27
+HUE_DN	EQU	0x1F
+SHA_UP	EQU	0x4D
+SHA_DN	EQU	0x4E
+PHA_UP	EQU	0x48
+PHA_DN	EQU	0x08
+ADJUST	EQU	0x52
+EXIT	EQU	0x53
+ADDR	EQU	0x54
+ASTRSK 	EQU	0x20
+ENTER	EQU	0x57
+F1	EQU	0xFF
+F2	EQU	0xFE
+F3	EQU	0xFD
+F4	EQU	0xFC
+F5	EQU	0xFB
+CUR_UP	EQU	0xFA
+CUR_RI	EQU	0x56
+CUR_DN	EQU	0x51
+CUR_LE	EQU	0x55
+
+; Definition of Functions on the Propeller clock
+
+SEC_UP		EQU	NUM_1
+SEC_DN		EQU	F1
+MIN_UP		EQU	NUM_2
+MIN_DN		EQU	F2
+HOUR_UP		EQU	NUM_3
+HOUR_DN		EQU	F3
+DAY_UP		EQU	NUM_4
+DAY_DN		EQU	F4
+MON_UP		EQU	NUM_5
+MON_DN		EQU	F5
+YEAR_UP		EQU	NUM_6
+YEAR_DN		EQU	CUR_UP
+INDEX_UP	EQU	NUM_9
+INDEX_DN	EQU	PHA_DN
+
+BlueLine	EQU	VOL_UP
+DigiTime	EQU	VOL_DN
+DigiDate	EQU	BRI_UP
+AnaTime		EQU	BRI_DN
+TTicks		EQU	SAT_UP
+
+DM		EQU	ASTRSK	;Demo Mode
+TextMode	EQU	TEXT

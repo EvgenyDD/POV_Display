@@ -90,6 +90,7 @@ volatile uint16_t AdcData[4];
 volatile uint16_t currentSpinFreq = 0;
 volatile uint16_t spinTimer = 0;
 
+volatile uint32_t systime_ms = 0;
 
 /* Extern variables ----------------------------------------------------------*/
 extern StatusYesOrNo RC5_FrameReceived;
@@ -137,6 +138,8 @@ void SysTick_Handler(void)
 		if(--metrCounter == 0)
 			MetronomeSound();
 	}
+
+	systime_ms++;
 }
 
 
@@ -298,21 +301,21 @@ void Init()
 	IWDG_ReloadCounter();
 	IWDG_Enable();
 
-#if 1
-/* MCO */
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-	RCC_MCOConfig(RCC_MCOSource_LSE); // Put on MCO pin the: System clock selected
-	//RCC_MCOConfig(RCC_MCOSource_HSE); // Put on MCO pin the: freq. of external crystal
-	//RCC_MCOConfig(RCC_MCOSource_PLLCLK_Div2); // Put on MCO pin the: System clock selected
-#endif
+//#if 1
+///* MCO */
+//	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+//
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);
+//
+//	RCC_MCOConfig(RCC_MCOSource_LSE); // Put on MCO pin the: System clock selected
+//	//RCC_MCOConfig(RCC_MCOSource_HSE); // Put on MCO pin the: freq. of external crystal
+//	//RCC_MCOConfig(RCC_MCOSource_PLLCLK_Div2); // Put on MCO pin the: System clock selected
+//#endif
 }
 
 
@@ -335,8 +338,8 @@ int main(void)
 
 	SoundInit();
 
-	DebugSendString("$ System Started!");
-	Debug_OutSysTimeDate();
+//	DebugSendString("$ System Started!");
+	// Debug_OutSysTimeDate();
 
 
 	UIInit();
@@ -348,24 +351,27 @@ int main(void)
 	FMOff();
 #endif
 
+    GetTimeDate(&TimeTemp, &DateTemp);
+    if(DateTemp.RTC_Year > 100 || DateTemp.RTC_Year < 20)
+    {
+        RTC_TimeTypeDef RTC_TimeStructure;
+        RTC_DateTypeDef RTC_DateStructure;
 
-#if 0
-	RTC_TimeTypeDef RTC_TimeStructure;
-	RTC_DateTypeDef RTC_DateStructure;
+        RTC_TimeStructure.RTC_H12 = RTC_H12_AM;
+        RTC_TimeStructure.RTC_Hours = 12;
+        RTC_TimeStructure.RTC_Minutes = 0;
+        RTC_TimeStructure.RTC_Seconds = 0;
+        RTC_SetTime(RTC_Format_BIN, &RTC_TimeStructure);
 
-	RTC_TimeStructure.RTC_H12 = RTC_H12_AM;
-	RTC_TimeStructure.RTC_Hours = 12;
-	RTC_TimeStructure.RTC_Minutes = 05;
-	RTC_TimeStructure.RTC_Seconds = 0;
-	RTC_SetTime(RTC_Format_BIN, &RTC_TimeStructure);
-
-	RTC_DateStructure.RTC_Date = 20;
-	RTC_DateStructure.RTC_Month = 12;
-	RTC_DateStructure.RTC_Year = 14;
-	RTC_DateStructure.RTC_WeekDay = 5;
-	RTC_SetDate(RTC_Format_BIN, &RTC_DateStructure);
-#endif
-
+        RTC_DateStructure.RTC_Date = 1;
+        RTC_DateStructure.RTC_Month = 1;
+        RTC_DateStructure.RTC_Year = 20;
+        RTC_DateStructure.RTC_WeekDay = 3;
+        RTC_SetDate(RTC_Format_BIN, &RTC_DateStructure);
+    }
+    // DebugSendNumWDesc("Y", DateTemp.RTC_Year);
+    // DebugSendNumWDesc("M", DateTemp.RTC_Month);
+    // DebugSendNumWDesc("D", DateTemp.RTC_Date);
 
 
 	//SoundPlayNote(25, WAVE_SIN, 200); //startup sound
@@ -465,7 +471,7 @@ int main(void)
     		//DebugSendNumWDesc("spin:", currentSpinFreq);
     		//DebugSendNumWDesc("spd:", MotorGetSpeed());
     		//DebugSendChar('\n');
-    		Debug_OutSysTimeDate();
+    		// Debug_OutSysTimeDate();
 #endif
     	}
 
@@ -485,22 +491,25 @@ int main(void)
 				itoa_(RC5_Frame.ToggleBit, rc5s);strcat_(out, rc5s);
 				DebugSendString(out);*/
 
-				//if(RC5_Frame.Address < 2)
+				if(RC5_Frame.Address == 0)
 				{
 					/* make sound if button is pressed */
 					SoundPlayNote(sett.toneClick, WAVE_SIN, 100, sett.volClick);
-					DebugSendChar('\n');DebugSendChar('*'); //button is pressed
+//					if(RC5_Frame.Command == 18 ||
+//							RC5_Frame.Command == 50)
+//						DebugSendChar('\n');
+					DebugSendNum2WDesc("RC", RC5_Frame.Address, RC5_Frame.Command); //button is pressed
 
 					switch(RC5_Frame.Command)
 					{
 					//ON/OFF RED Button
-					case 19:
-					case 51:
+					case 12:
+					case 57:
 						if(PowerFlag)
 						{
 							PowerFlag = FALSE;
 							metrFlag = FALSE;
-							DebugSendString("--- ROTOR OFF");
+							// DebugSendString("--- ROTOR OFF");
 							FMOff();
 							MotorSpeedSet(0);
 							//SoundSetVolume(sett.volClick);
@@ -509,7 +518,7 @@ int main(void)
 						else
 						{
 							PowerFlag = TRUE;
-							DebugSendString("+++ ROTOR ON");
+							// DebugSendString("+++ ROTOR ON");
 							FMSetFreq(FREQ20K, FREQ20K*2/9);
 							MotorSpeedSet(110);
 							//SoundSetVolume(sett.volClick);
@@ -531,42 +540,39 @@ int main(void)
 						break;
 
 					//MUTE Button
-					case 18:
-					case 50:
+					case 13:
 						if(PowerFlag) UIDispatcher(B_MUTE);
 						break;
 
 					//AV/TV Button
-					case 20:
-					case 52:
+					case 56:
 						if(PowerFlag) UIDispatcher(B_AVTV);
 						break;
 
 					//RIGHT Button
-					case 15:
-					case 47:
+					case 16:
 						if(PowerFlag) UIDispatcher(B_RIGHT);
 						break;
 
 					//LEFT Button
-					case 14:
-					case 46:
+					case 17:
 						if(PowerFlag) UIDispatcher(B_LEFT);
 						break;
 
 					//UP Button
-					case 31:
+					case 32:
 						if(PowerFlag) UIDispatcher(B_UP);
 						break;
 
 					//DOWN Button
-					case 30:
+					case 33:
 						if(PowerFlag) UIDispatcher(B_DOWN);
 						break;
 
 					default:
-						DebugSendNumWDesc("->FAIL RC5 command: ", RC5_Frame.Command);
-						SoundPlayNote(12*3+E, WAVE_SIN, 40, sett.volClick);
+//						DebugSendNumWDesc("->FAIL RC5 command: ", RC5_Frame.Command);
+//						SoundPlayNote(12*3+E, WAVE_SIN, 40, sett.volClick);
+						break;
 					}
 				}
 			}

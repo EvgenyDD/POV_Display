@@ -1,0 +1,83 @@
+
+; Define RC5 address of Remote Control
+
+RemoteAddr	EQU	0x00
+
+; Definition of Keys and key-codes on my remote control
+
+NUM_0	EQU	0x00	;1-es gomb, másodperc 0-ra
+NUM_1	EQU	0x01	;2-es gomb
+NUM_2	EQU	0x02	;3-as gomb
+NUM_3	EQU	0x03	;4-es gomb
+NUM_4	EQU	0x04	;5-ös gomb
+NUM_5	EQU	0x05	;6-os gomb
+NUM_6	EQU	0x06	;7-es gomb
+NUM_7	EQU	0x07	;8-as gomb
+NUM_8	EQU	0x08	;9-es gomb
+NUM_9	EQU	0x09	;10-es gomb
+FREEZE	EQU	0x5D
+PAUSE	EQU	0x30
+STANDBY	EQU	0x0C	;11-es gomb, kikapcsolás (készenlét)
+MUTE	EQU	0x2D
+HELP	EQU	0x2F
+TEXT	EQU	0x0F
+VOL_UP	EQU	0x0A	;12-es gomb
+VOL_DN	EQU	0x0B	;13-as gomb
+BRI_UP	EQU	0x0C	;14-es gomb
+BRI_DN	EQU	0x0D	;15-ös gomb
+SAT_UP	EQU	0x2B	;16-os gomb
+SAT_DN	EQU	0x29
+BAS_UP	EQU	0x16
+BAS_DN	EQU	0x17
+TRE_UP	EQU	0x18
+TRE_DN	EQU	0x19
+BAL_RI	EQU	0x1A
+BAL_LE	EQU	0x1B
+CON_UP	EQU	0x1C
+CON_DN	EQU	0x1E
+HUE_UP	EQU	0x27
+HUE_DN	EQU	0x1F
+SHA_UP	EQU	0x2E
+PIP  	EQU	0x26
+PHA_UP	EQU	0x2A
+PHA_DN	EQU	0x2C
+ADJUST	EQU	0x52
+EXIT	EQU	0x53
+ADDR	EQU	0x54
+ASTRSK 	EQU	0x77
+ENTER	EQU	0x3B
+RED	    EQU	0x37
+GREEN	EQU	0x36
+YELOW	EQU	0x32
+BLUE	EQU	0x34
+PP	    EQU	0x0E
+CUR_UP	EQU	0x20
+CUR_RI	EQU	0x10
+CUR_DN	EQU	0x21
+CUR_LE	EQU	0x11
+
+; Definition of Functions on the Propeller clock
+
+SEC_UP		EQU	NUM_1
+SEC_DN		EQU	NUM_2
+MIN_UP		EQU	CUR_RI
+MIN_DN		EQU	CUR_LE
+HOUR_UP	    EQU	CUR_UP
+HOUR_DN	    EQU	CUR_DN
+DAY_UP		EQU	VOL_DN
+DAY_DN		EQU	SHA_UP
+MON_UP		EQU	PIP
+MON_DN		EQU	PHA_UP
+YEAR_UP  	EQU	VOL_UP
+YEAR_DN	    EQU	PHA_DN
+INDEX_UP	EQU	SAT_UP
+INDEX_DN	EQU	SAT_DN
+
+BlueLine	EQU	RED
+DigiTime	EQU	GREEN
+DigiDate	EQU	BLUE
+AnaTime		EQU	YELOW
+TTicks		EQU	PP
+WEEK_DN     EQU	MUTE
+DM		    EQU	ENTER	;Demo Mode
+TextMode	EQU	TEXT

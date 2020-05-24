@@ -36,21 +36,21 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #if 0
-#define   NOMINAL_HALF_BIT_TIME_US   889  /* Nominal half bit time in µs */
-#define   MIN_HALF_BIT_TIME_US       640  /* Minimum half bit time in µs */
-#define   MAX_HALF_BIT_TIME_US       1140 /* Maximum half bit time in µs */
+#define   NOMINAL_HALF_BIT_TIME_US   889  /* Nominal half bit time in ï¿½s */
+#define   MIN_HALF_BIT_TIME_US       640  /* Minimum half bit time in ï¿½s */
+#define   MAX_HALF_BIT_TIME_US       1140 /* Maximum half bit time in ï¿½s */
 
-#define   NOMINAL_FULL_BIT_TIME_US   1778 /* Nominal Full bit time in µs */
-#define   MIN_FULL_BIT_TIME_US       1340 /* Minimum Full bit time in µs */
-#define   MAX_FULL_BIT_TIME_US       2220 /* Maximum Full bit time in µs */
+#define   NOMINAL_FULL_BIT_TIME_US   1778 /* Nominal Full bit time in ï¿½s */
+#define   MIN_FULL_BIT_TIME_US       1340 /* Minimum Full bit time in ï¿½s */
+#define   MAX_FULL_BIT_TIME_US       2220 /* Maximum Full bit time in ï¿½s */
 #else
-#define   NOMINAL_HALF_BIT_TIME_US   680  /* Nominal half bit time in µs */
-#define   MIN_HALF_BIT_TIME_US       610  /* Minimum half bit time in µs */
-#define   MAX_HALF_BIT_TIME_US       1500 /* Maximum half bit time in µs */
+#define   NOMINAL_HALF_BIT_TIME_US   800  /* Nominal half bit time in ï¿½s */
+#define   MIN_HALF_BIT_TIME_US       640  /* Minimum half bit time in ï¿½s */
+#define   MAX_HALF_BIT_TIME_US       1140 /* Maximum half bit time in ï¿½s */
 
-#define   NOMINAL_FULL_BIT_TIME_US   1778 /* Nominal Full bit time in µs */
-#define   MIN_FULL_BIT_TIME_US       1550 /* Minimum Full bit time in µs */
-#define   MAX_FULL_BIT_TIME_US       2500 /* Maximum Full bit time in µs */
+#define   NOMINAL_FULL_BIT_TIME_US   1700 /* Nominal Full bit time in ï¿½s */
+#define   MIN_FULL_BIT_TIME_US       1300 /* Minimum Full bit time in ï¿½s */
+#define   MAX_FULL_BIT_TIME_US       2200 /* Maximum Full bit time in ï¿½s */
 #endif
 #define   RC5_TIM_PRESCALER          2
 
@@ -74,6 +74,10 @@ uint16_t FullBitDurationCount_Max = 0; /* Maximum Full bit duration in TIM count
 uint16_t NominalBitDurationCount  = 0; /* Nominal Full bit duration in TIM count */
 uint16_t NominalBitDurationCount_3div4 = 0; /* 3/4 of nominal bit time in TIM count */
 TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+
+uint32_t next_rx_time_ena = 0;
+
+extern uint32_t systime_ms;
 
 
 /* Extern variables ----------------------------------------------------------*/
@@ -253,6 +257,11 @@ void EXTI4_15_IRQHandler()
 	/* If an edge is detected on RC5 input pin */
 	if(EXTI_GetITStatus(EXTI_Line7) != RESET)
 	{
+		/* Clear the RC5 EXTI line pending bit */
+		EXTI_ClearITPendingBit(EXTI_Line7);
+
+		if(next_rx_time_ena > systime_ms) return; // prohibited
+
 		/* Increment the edges number */
 		EdgesNumber++;
 
@@ -277,13 +286,13 @@ void EXTI4_15_IRQHandler()
 			/* Reset RC5_TIM counter */
 			TIM17->CNT = 0;
 
-			/* If low duration is between 640µs*TimClk and 1140µs*TimClk (min and max half bit time) */
+			/* If low duration is between 640ï¿½s*TimClk and 1140ï¿½s*TimClk (min and max half bit time) */
 			if ((LowDuration >= HalfBitDurationCount_Min) && (LowDuration <= HalfBitDurationCount_Max))
 			{
 				/* Validate the frame, by setting this variable to OK */
 				BitTimeStatus = OK;
 			}
-			/* If low duration is between 1340µs*TimClk and 2220µs*TimClk (min and max full bit time)*/
+			/* If low duration is between 1340ï¿½s*TimClk and 2220ï¿½s*TimClk (min and max full bit time)*/
 			else if ((LowDuration >= FullBitDurationCount_Min) && (LowDuration <= FullBitDurationCount_Max))
 			{
 				/* Disable EXTI line x to avoid jumping to this interrupt while receiving
@@ -345,8 +354,6 @@ void EXTI4_15_IRQHandler()
 			EdgesNumber = 0;
 		}
 
-		/* Clear the RC5 EXTI line pending bit */
-		EXTI_ClearITPendingBit(EXTI_Line7);
 	}
 }
 
@@ -392,9 +399,11 @@ RC5Frame_TypeDef RC5_Decode(void)
 
 	/* Initialize RC5_FrameReceived for next RC5 reception */
 	RC5_FrameReceived = NO;
-
+    
 	/* Wait for next falling edge of RC5 frame*/
 	RC5_WaitForNextFallingEdge();
+
+	next_rx_time_ena = systime_ms + 250;
 
 	/* Return the RC5 struct */
 	return RC5_frame_struct;
