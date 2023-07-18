@@ -3,8 +3,8 @@
 <workbenchAdvisor/>
 <window>
 <fastViewData fastViewLocation="1024">
-<orientation position="512" view="org.eclipse.search.ui.views.SearchView"/>
 <orientation position="512" view="org.coocox.codebugger.trace.ui.traceview"/>
+<orientation position="512" view="org.eclipse.search.ui.views.SearchView"/>
 <orientation position="512" view="org.eclipse.debug.ui.VariableView"/>
 </fastViewData>
 <perspectiveBar/>
@@ -25,7 +25,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/main.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="14566" selectionTopPixel="5141"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" partName="UI.c" path="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/UI.c" title="UI.c" tooltip="H:/WORKSPACE/ARM/POV_Display/POV_ROTOR/src/UI.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.c" partName="UI.c" path="H:/#WORK/_STM32/#archive/POV_Display/POV_ROTOR/src/UI.c" title="UI.c" tooltip="H:/#WORK/_STM32/#archive/POV_Display/POV_ROTOR/src/UI.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Rotor/src/UI.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15515" selectionTopPixel="4633"/>
 </editor>
@@ -313,47 +313,47 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="DiscoveryTemplate/main.c">
-<persistable path="/DiscoveryTemplate/main.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="LCD.h" tooltip="DiscoveryTemplate/src/STemWIN/inc/LCD.h">
+<persistable path="/DiscoveryTemplate/src/STemWIN/inc/LCD.h"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h">
-<persistable path="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h" project="DiscoveryTemplate"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="TxRx.h" tooltip="Rotor/inc/TxRx.h">
+<persistable path="/Rotor/inc/TxRx.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="DiscoveryTemplate/FreeRTOSConfig.h">
-<persistable path="/DiscoveryTemplate/FreeRTOSConfig.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timework.h" tooltip="Rotor/inc/timework.h">
+<persistable path="/Rotor/inc/timework.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_freertos.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_freertos.c">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_freertos.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="Rotor/inc/string.h">
+<persistable path="/Rotor/inc/string.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="sys_make.mk" tooltip="DiscoveryTemplate/src/uGFX/gos/sys_make.mk">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/sys_make.mk"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.h" tooltip="Rotor/inc/debug.h">
+<persistable path="/Rotor/inc/debug.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sys_rules.h" tooltip="DiscoveryTemplate/src/uGFX/gos/sys_rules.h">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/sys_rules.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display_HAL.h" tooltip="Rotor/inc/display_HAL.h">
+<persistable path="/Rotor/inc/display_HAL.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_raw32.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_raw32.c">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_raw32.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="draw.h" tooltip="Rotor/inc/draw.h">
+<persistable path="/Rotor/inc/draw.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="sys_defs.h" tooltip="DiscoveryTemplate/src/uGFX/gmisc/sys_defs.h">
-<persistable path="/DiscoveryTemplate/src/uGFX/gmisc/sys_defs.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UI.h" tooltip="Rotor/inc/UI.h">
+<persistable path="/Rotor/inc/UI.h"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="DejaVuSans32.c" tooltip="DiscoveryTemplate/src/uGFX/gdisp/fonts/DejaVuSans32.c">
-<persistable path="/DiscoveryTemplate/src/uGFX/gdisp/fonts/DejaVuSans32.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="display_HAL.c" tooltip="Rotor/src/display_HAL.c">
+<persistable path="/Rotor/src/display_HAL.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gfxconf.h" tooltip="DiscoveryTemplate/src/uGFX/gfxconf.h">
-<persistable path="/DiscoveryTemplate/src/uGFX/gfxconf.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="debug.c" tooltip="Rotor/src/debug.c">
+<persistable path="/Rotor/src/debug.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_chibios.h" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_chibios.h">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_chibios.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="font.c" tooltip="Rotor/src/font.c">
+<persistable path="/Rotor/src/font.c"/>
 </file>
-<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h">
-<persistable path="C:\Program Files (x86)\ARM GCC\arm-none-eabi\include\string.h" project="DiscoveryTemplate"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f0xx_temp.c" tooltip="BASE/cmsis_boot/system_stm32f0xx_temp.c">
+<persistable path="/BASE/cmsis_boot/system_stm32f0xx_temp.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="DiscoveryTemplate/FreeRTOSConfig.h">
-<persistable path="/DiscoveryTemplate/FreeRTOSConfig.h"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_rcc.c" tooltip="BASE/stm32_lib/src/stm32f0xx_rcc.c">
+<persistable path="/BASE/stm32_lib/src/stm32f0xx_rcc.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gos_freertos.c" tooltip="DiscoveryTemplate/src/uGFX/gos/gos_freertos.c">
-<persistable path="/DiscoveryTemplate/src/uGFX/gos/gos_freertos.c"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f0xx_rcc.h" tooltip="BASE/stm32_lib/inc/stm32f0xx_rcc.h">
+<persistable path="/BASE/stm32_lib/inc/stm32f0xx_rcc.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rng.h" tooltip="DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h">
 <persistable path="/DiscoveryTemplate/cmsis_lib/include/stm32f4xx_rng.h"/>

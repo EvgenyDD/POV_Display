@@ -21,5 +21,6 @@ void DebugSendString(char*);
 void DebugSendChar(char);
 void DebugSendNum(uint16_t Num);
 void DebugSendNumWDesc(char *string, uint32_t Num);
+void DebugSendNum2WDesc(char *string, uint32_t Num, uint32_t Num2);
 
 #endif //DEBUG_H
